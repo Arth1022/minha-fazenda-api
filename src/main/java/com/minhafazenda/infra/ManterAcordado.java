@@ -22,6 +22,7 @@ public class ManterAcordado {
 
     public ManterAcordado(@Value("${manter-acordado.url}") String urlPublica) {
         this.cliente = RestClient.create(urlPublica);
+        log.info("Ping para manter a API acordada ligado: {}/ping", urlPublica);
     }
 
     @Scheduled(fixedDelayString = "${manter-acordado.intervalo:PT10M}",
