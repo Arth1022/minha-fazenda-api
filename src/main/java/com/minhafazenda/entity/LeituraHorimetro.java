@@ -31,10 +31,10 @@ public class LeituraHorimetro extends BaseFazendaEntity {
 
     private UUID operadorId;
 
-    @Column(nullable = false, columnDefinition = "numeric")
+    @Column(name = "valor_h", nullable = false, columnDefinition = "numeric")
     private BigDecimal valorH;
 
-    @Column(columnDefinition = "numeric")
+    @Column(name = "estimado_h", columnDefinition = "numeric")
     private BigDecimal estimadoH;
 
     @Column(nullable = false, columnDefinition = "text")

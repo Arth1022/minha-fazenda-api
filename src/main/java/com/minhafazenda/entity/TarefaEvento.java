@@ -3,9 +3,6 @@ package com.minhafazenda.entity;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
 import com.minhafazenda.enums.TipoEventoTarefa;
 
 import jakarta.persistence.Column;
@@ -38,7 +35,7 @@ public class TarefaEvento extends BaseFazendaEntity {
     @Column(columnDefinition = "text")
     private String texto;
 
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(columnDefinition = "jsonb")
+    /** JSON em texto, como as outras colunas JSON do sync (o app grava e lê como string). */
+    @Column(columnDefinition = "text")
     private String dados;
 }

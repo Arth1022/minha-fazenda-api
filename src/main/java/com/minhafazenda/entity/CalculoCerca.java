@@ -29,10 +29,10 @@ public class CalculoCerca extends BaseFazendaEntity {
     @Column(nullable = false)
     private Integer fios;
 
-    @Column(nullable = false, columnDefinition = "numeric")
+    @Column(name = "espacamento_m", nullable = false, columnDefinition = "numeric")
     private BigDecimal espacamentoM;
 
-    @Column(nullable = false, columnDefinition = "numeric")
+    @Column(name = "perimetro_m", nullable = false, columnDefinition = "numeric")
     private BigDecimal perimetroM;
 
     @Column(nullable = false)

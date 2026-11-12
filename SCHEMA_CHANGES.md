@@ -50,6 +50,9 @@ O ID de cada mudança aparece no `comment` dos changesets em
 | SC-041 | 2026-11-11 | (as 7 tabelas da API e animais.nome) | colunas de texto passam de varchar(255) para text | text | — | app | entity+changeset |
 | SC-042 | 2026-11-12 | tarefas | + tabela de domínio | ver detalhe | ver detalhe | app | entity+changeset |
 | SC-043 | 2026-11-12 | tarefa_eventos | + tabela de domínio | ver detalhe | ver detalhe | app | entity+changeset |
+| SC-044 | 2026-11-12 | calculos_cerca, talhoes, maquinas, abastecimentos, leituras_horimetro, animais | renomeia 8 colunas com sufixo de unidade para snake_case (`espacamentom` → `espacamento_m` etc.) | — | — | app | entity+changeset |
+| SC-045 | 2026-11-12 | tarefa_eventos | `dados` de jsonb para text | text | sim | app | entity+changeset |
+| SC-046 | 2026-11-12 | usos_maquina | reparo: uso descartado (apagado) sem `fim` recebe `fim = deleted_at` | — | — | app | entity+changeset |
 
 Todas as mudanças acima já estão aplicadas no projeto Supabase; passam a "API em produção" quando
 a API subir lá.
@@ -341,3 +344,17 @@ Regras desta leva:
 - Colunas, além das de `BaseFazendaEntity`: `tarefa_id uuid`, `tipo text (enum)`, `autor_id uuid`, `ocorrido_em timestamptz`, `texto text`, `dados jsonb`
 - Sync Stream: `tarefa_eventos`
 - Changeset: db/changelog/changes/20261112024500-tarefas-e-eventos.yaml
+
+## SC-044 — colunas com sufixo de unidade
+- Motivo: o `CamelCaseToUnderscoresNamingStrategy` não separa a última letra maiúscula (`espacamentoM` virou `espacamentom`). O app manda `espacamento_m`; o sync ignorava a coluna e, nas NOT NULL, recusava o registro inteiro (cercas e leituras de horímetro sumiam do celular).
+- Colunas: `calculos_cerca.espacamento_m`, `calculos_cerca.perimetro_m`, `talhoes.perimetro_m`, `maquinas.largura_trabalho_m`, `abastecimentos.horimetro_h`, `leituras_horimetro.valor_h`, `leituras_horimetro.estimado_h`, `animais.producao_leite_l`
+- Entities fixam o nome com `@Column(name = ...)`.
+- Changeset: db/changelog/changes/20261112120000-corrige-colunas-do-sync.yaml
+
+## SC-045 — tarefa_eventos.dados como text
+- Motivo: igual às outras colunas JSON do sync (o app grava e lê JSON em texto); o contrato Drizzle × Postgres acusava jsonb × text.
+- Changeset: db/changelog/changes/20261112120000-corrige-colunas-do-sync.yaml
+
+## SC-046 — reparo de usos descartados
+- Motivo: uso ligado sem querer era apagado sem `fim`; telas que olhavam só `fim IS NULL` mostravam a máquina em uso para sempre. O app agora grava `fim` junto com `deleted_at`.
+- Changeset: db/changelog/changes/20261112120000-corrige-colunas-do-sync.yaml

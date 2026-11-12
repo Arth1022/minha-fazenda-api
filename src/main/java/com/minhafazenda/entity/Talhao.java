@@ -33,7 +33,7 @@ public class Talhao extends BaseFazendaEntity {
     @Column(nullable = false, columnDefinition = "numeric")
     private BigDecimal areaHectares;
 
-    @Column(columnDefinition = "numeric")
+    @Column(name = "perimetro_m", columnDefinition = "numeric")
     private BigDecimal perimetroM;
 
     @Column(nullable = false, columnDefinition = "text")

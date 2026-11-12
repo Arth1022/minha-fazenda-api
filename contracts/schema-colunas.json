@@ -32,7 +32,7 @@
   "data_type" : "text"
 }, {
   "table_name" : "abastecimentos",
-  "column_name" : "horimetroh",
+  "column_name" : "horimetro_h",
   "data_type" : "numeric"
 }, {
   "table_name" : "abastecimentos",
@@ -180,7 +180,7 @@
   "data_type" : "numeric"
 }, {
   "table_name" : "animais",
-  "column_name" : "producao_leitel",
+  "column_name" : "producao_leite_l",
   "data_type" : "numeric"
 }, {
   "table_name" : "animais",
@@ -396,7 +396,7 @@
   "data_type" : "boolean"
 }, {
   "table_name" : "calculos_cerca",
-  "column_name" : "espacamentom",
+  "column_name" : "espacamento_m",
   "data_type" : "numeric"
 }, {
   "table_name" : "calculos_cerca",
@@ -416,7 +416,7 @@
   "data_type" : "integer"
 }, {
   "table_name" : "calculos_cerca",
-  "column_name" : "perimetrom",
+  "column_name" : "perimetro_m",
   "data_type" : "numeric"
 }, {
   "table_name" : "calculos_cerca",
@@ -1000,7 +1000,7 @@
   "data_type" : "timestamp with time zone"
 }, {
   "table_name" : "leituras_horimetro",
-  "column_name" : "estimadoh",
+  "column_name" : "estimado_h",
   "data_type" : "numeric"
 }, {
   "table_name" : "leituras_horimetro",
@@ -1032,7 +1032,7 @@
   "data_type" : "uuid"
 }, {
   "table_name" : "leituras_horimetro",
-  "column_name" : "valorh",
+  "column_name" : "valor_h",
   "data_type" : "numeric"
 }, {
   "table_name" : "leituras_horimetro",
@@ -1132,7 +1132,7 @@
   "data_type" : "numeric"
 }, {
   "table_name" : "maquinas",
-  "column_name" : "largura_trabalhom",
+  "column_name" : "largura_trabalho_m",
   "data_type" : "numeric"
 }, {
   "table_name" : "maquinas",
@@ -1852,7 +1852,7 @@
   "data_type" : "text"
 }, {
   "table_name" : "talhoes",
-  "column_name" : "perimetrom",
+  "column_name" : "perimetro_m",
   "data_type" : "numeric"
 }, {
   "table_name" : "talhoes",
@@ -1913,7 +1913,7 @@
 }, {
   "table_name" : "tarefa_eventos",
   "column_name" : "dados",
-  "data_type" : "jsonb"
+  "data_type" : "text"
 }, {
   "table_name" : "tarefas",
   "column_name" : "id",

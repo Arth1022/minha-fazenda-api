@@ -1,0 +1,40 @@
+# Corrige colunas que não batiam com o app (contrato Drizzle × Postgres).
+#
+# O CamelCaseToUnderscoresNamingStrategy não separa a última letra maiúscula do nome do campo:
+# espacamentoM virou "espacamentom" em vez de "espacamento_m". O sync ignora coluna que a tabela
+# não tem, então o valor enviado pelo app sumia; nas colunas NOT NULL o registro inteiro era
+# recusado (cerca e leitura de horímetro) e o PowerSync apagava a linha do celular.
+# As Entities agora fixam o nome com @Column(name = ...).
+databaseChangeLog:
+- changeSet:
+    id: 20261112120000-01
+    author: minhafazenda
+    comment: colunas com sufixo de unidade no padrão snake_case do app
+    changes:
+    - renameColumn: { tableName: calculos_cerca, oldColumnName: espacamentom, newColumnName: espacamento_m }
+    - renameColumn: { tableName: calculos_cerca, oldColumnName: perimetrom, newColumnName: perimetro_m }
+    - renameColumn: { tableName: talhoes, oldColumnName: perimetrom, newColumnName: perimetro_m }
+    - renameColumn: { tableName: maquinas, oldColumnName: largura_trabalhom, newColumnName: largura_trabalho_m }
+    - renameColumn: { tableName: abastecimentos, oldColumnName: horimetroh, newColumnName: horimetro_h }
+    - renameColumn: { tableName: leituras_horimetro, oldColumnName: valorh, newColumnName: valor_h }
+    - renameColumn: { tableName: leituras_horimetro, oldColumnName: estimadoh, newColumnName: estimado_h }
+    - renameColumn: { tableName: animais, oldColumnName: producao_leitel, newColumnName: producao_leite_l }
+
+- changeSet:
+    id: 20261112120000-02
+    author: minhafazenda
+    comment: tarefa_eventos.dados como texto JSON, igual às outras colunas JSON do sync
+    changes:
+    - sql:
+        sql: ALTER TABLE tarefa_eventos ALTER COLUMN dados TYPE text USING dados::text
+
+- changeSet:
+    id: 20261112120000-03
+    author: minhafazenda
+    comment: uso descartado (ligado sem querer) ficava apagado mas sem fim, e a máquina aparecia em uso
+    changes:
+    - sql:
+        sql: |
+          UPDATE usos_maquina
+          SET fim = deleted_at, fim_motivo = coalesce(fim_motivo, 'manual'), server_updated_at = now()
+          WHERE fim IS NULL AND deleted_at IS NOT NULL

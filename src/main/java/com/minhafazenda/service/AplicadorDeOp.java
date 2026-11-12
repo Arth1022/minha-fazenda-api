@@ -1,6 +1,7 @@
 package com.minhafazenda.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -33,7 +34,12 @@ class AplicadorDeOp {
     private final PermissoesProperties permissoes;
     private final List<ValidadorSync> validadores;
 
-    void aplicar(UUID usuarioId, SyncOp op) {
+    /**
+     * @param membros papel do usuário em cada fazenda já conferida neste lote: um lote do app
+     *                costuma ter centenas de operações da mesma fazenda, e assim a consulta de
+     *                fazenda_membros roda uma vez por fazenda, não uma vez por operação
+     */
+    void aplicar(UUID usuarioId, SyncOp op, Map<UUID, FazendaMembro> membros) {
         TabelaSchema tabela = schemaCache.buscar(op.table())
                 .orElseThrow(() -> new OpRejeitadaException(CodigoErro.VALIDACAO, "Tabela não sincronizável."));
         UUID id = comoUuid(op.id(), "id");
@@ -45,7 +51,7 @@ class AplicadorDeOp {
         }
         // A fazenda de um registro existente nunca muda; o fazenda_id do app só vale para criar.
         UUID fazendaId = fazendaDoRegistro.orElseGet(() -> fazendaInformada(op));
-        exigirPermissao(usuarioId, fazendaId, op);
+        exigirPermissao(usuarioId, fazendaId, op, membros);
         validar(tabela, op);
         gravar(tabela, id, fazendaId, usuarioId, op);
     }
@@ -65,12 +71,15 @@ class AplicadorDeOp {
         return comoUuid(fazendaId.asString(), TabelaSchema.FAZENDA_ID);
     }
 
-    private void exigirPermissao(UUID usuarioId, UUID fazendaId, SyncOp op) {
-        FazendaMembro membro;
-        try {
-            membro = membroService.exigirMembro(usuarioId, fazendaId);
-        } catch (ApiException e) {
-            throw new OpRejeitadaException(e.getCodigo(), e.getMessage());
+    private void exigirPermissao(UUID usuarioId, UUID fazendaId, SyncOp op, Map<UUID, FazendaMembro> membros) {
+        FazendaMembro membro = membros.get(fazendaId);
+        if (membro == null) {
+            try {
+                membro = membroService.exigirMembro(usuarioId, fazendaId);
+            } catch (ApiException e) {
+                throw new OpRejeitadaException(e.getCodigo(), e.getMessage());
+            }
+            membros.put(fazendaId, membro);
         }
         if (apagaRegistro(op) && !membro.ehOwner() && !permissoes.collaboratorPodeApagar()) {
             throw new OpRejeitadaException(CodigoErro.SEM_PERMISSAO, "Seu papel não permite apagar registros.");

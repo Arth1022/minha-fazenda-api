@@ -58,7 +58,7 @@ public class Maquina extends BaseFazendaEntity {
     @Column(columnDefinition = "numeric")
     private BigDecimal tanqueLitros;
 
-    @Column(columnDefinition = "numeric")
+    @Column(name = "largura_trabalho_m", columnDefinition = "numeric")
     private BigDecimal larguraTrabalhoM;
 
     @Column(nullable = false)

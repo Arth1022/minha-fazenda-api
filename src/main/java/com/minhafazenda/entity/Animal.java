@@ -68,7 +68,7 @@ public class Animal extends BaseFazendaEntity {
 
     private UUID loteId;
 
-    @Column(columnDefinition = "numeric")
+    @Column(name = "producao_leite_l", columnDefinition = "numeric")
     private BigDecimal producaoLeiteL;
 
     @Column(columnDefinition = "numeric")

@@ -40,7 +40,7 @@ public class Abastecimento extends BaseFazendaEntity {
     @Column(nullable = false, columnDefinition = "text")
     private OrigemAbastecimento origem;
 
-    @Column(columnDefinition = "numeric")
+    @Column(name = "horimetro_h", columnDefinition = "numeric")
     private BigDecimal horimetroH;
 
     @Column(columnDefinition = "numeric")
