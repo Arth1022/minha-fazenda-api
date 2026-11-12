@@ -143,6 +143,92 @@ class ConviteIntegrationTest extends IntegracaoTest {
                 .andExpect(erro(404, "NAO_ENCONTRADO"));
     }
 
+    // Código de convite (6 caracteres, 24 h, uma pessoa)
+
+    @Test
+    void ownerGeraCodigoDeSeisCaracteresValidoPorUmDiaComMensagemParaCompartilhar() throws Exception {
+        Conta owner = api.registrarComFazenda();
+        Instant antes = Instant.now();
+
+        JsonNode codigo = api.json(api.post(rotaDeConvites(owner) + "/codigo", owner, null)
+                .andExpect(status().isCreated()));
+
+        assertThat(codigo.get("codigo").asString()).matches("[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}");
+        assertThat(codigo.get("mensagem").asString()).isEqualTo("Entre na minha fazenda: " + codigo.get("codigo").asString());
+        Instant expiraEm = Instant.parse(codigo.get("expiraEm").asString());
+        assertThat(Duration.between(antes, expiraEm)).isBetween(Duration.ofHours(23).plusMinutes(59), Duration.ofHours(24).plusMinutes(1));
+    }
+
+    @Test
+    void codigoDigitadoComMinusculasEspacoEHifenEntraComoCollaborator() throws Exception {
+        Conta owner = api.registrarComFazenda();
+        String codigo = gerarCodigo(owner);
+        String digitado = " " + codigo.substring(0, 3).toLowerCase() + "-" + codigo.substring(3) + " ";
+
+        Conta convidado = api.registrarComFazenda();
+        aceitar(convidado, digitado)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.fazendaId").value(owner.fazendaId().toString()));
+
+        assertThat(papelDe(convidado, owner)).isEqualTo("collaborator");
+    }
+
+    @Test
+    void codigoSoServeParaUmaPessoa() throws Exception {
+        Conta owner = api.registrarComFazenda();
+        String codigo = gerarCodigo(owner);
+        aceitar(api.registrarComFazenda(), codigo).andExpect(status().isOk());
+
+        aceitar(api.registrarComFazenda(), codigo).andExpect(erro(410, "CONVITE_INVALIDO"));
+    }
+
+    @Test
+    void codigoVencidoDepoisDeUmDia() throws Exception {
+        Conta owner = api.registrarComFazenda();
+        String codigo = gerarCodigo(owner);
+        jdbc.update("update convites set expira_em = now() - interval '1 minute' where codigo = ?", codigo);
+
+        aceitar(api.registrarComFazenda(), codigo).andExpect(erro(410, "CONVITE_INVALIDO"));
+        api.get(rotaDeConvites(owner) + "/codigo", owner).andExpect(erro(404, "NAO_ENCONTRADO"));
+    }
+
+    @Test
+    void cadastroComCodigoEntraNaFazenda() throws Exception {
+        Conta owner = api.registrarComFazenda();
+
+        Conta novo = api.registrarComConvite(gerarCodigo(owner).toLowerCase());
+
+        assertThat(novo.fazendaId()).isEqualTo(owner.fazendaId());
+        assertThat(papelDe(novo, owner)).isEqualTo("collaborator");
+    }
+
+    @Test
+    void gerarOutroCodigoNaoInvalidaOAnteriorEODonoVeOUltimo() throws Exception {
+        Conta owner = api.registrarComFazenda();
+        String primeiro = gerarCodigo(owner);
+        String segundo = gerarCodigo(owner);
+
+        api.get(rotaDeConvites(owner) + "/codigo", owner)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.codigo").value(segundo));
+        aceitar(api.registrarComFazenda(), primeiro).andExpect(status().isOk());
+        aceitar(api.registrarComFazenda(), segundo).andExpect(status().isOk());
+    }
+
+    @Test
+    void collaboratorNaoGeraNemVeCodigo() throws Exception {
+        Conta owner = api.registrarComFazenda();
+        Conta collaborator = api.registrarCollaboratorNaFazendaDe(owner);
+
+        api.post(rotaDeConvites(owner) + "/codigo", collaborator, null).andExpect(erro(403, "SEM_PERMISSAO"));
+        api.get(rotaDeConvites(owner) + "/codigo", collaborator).andExpect(erro(403, "SEM_PERMISSAO"));
+    }
+
+    private String gerarCodigo(Conta owner) throws Exception {
+        return api.json(api.post(rotaDeConvites(owner) + "/codigo", owner, null).andExpect(status().isCreated()))
+                .get("codigo").asString();
+    }
+
     private org.springframework.test.web.servlet.ResultActions aceitar(Conta conta, String token) throws Exception {
         return api.post("/convites/aceitar", conta, Map.of("token", token));
     }

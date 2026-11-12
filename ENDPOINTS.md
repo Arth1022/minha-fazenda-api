@@ -28,7 +28,9 @@ https://minha-fazenda-api.onrender.com
 | `PATCH` | [`/fazendas/{fazendaId}/membros/{usuarioId}`](#patch-fazendasfazendaidmembrosusuarioid) | owner | Muda o papel de um membro |
 | `DELETE` | [`/fazendas/{fazendaId}/membros/{usuarioId}`](#delete-fazendasfazendaidmembrosusuarioid) | owner | Remove um membro |
 | `DELETE` | [`/fazendas/{fazendaId}/membros/me`](#delete-fazendasfazendaidmembrosme) | membro | Sai da fazenda |
-| `POST` | [`/fazendas/{fazendaId}/convites`](#post-fazendasfazendaidconvites) | owner | Gera um link de convite |
+| `POST` | [`/fazendas/{fazendaId}/convites/codigo`](#post-fazendasfazendaidconvitescodigo) | owner | Gera um código de convite (24 h, 1 pessoa) |
+| `GET` | [`/fazendas/{fazendaId}/convites/codigo`](#get-fazendasfazendaidconvitescodigo) | owner | O último código ainda válido |
+| `POST` | [`/fazendas/{fazendaId}/convites`](#post-fazendasfazendaidconvites) | owner | Gera um link de convite | (legado)
 | `DELETE` | [`/convites/{id}`](#delete-convitesid) | owner | Revoga um convite |
 | `POST` | [`/convites/aceitar`](#post-convitesaceitar) | sim | Entra na fazenda do convite |
 | `POST` | [`/fazendas/{fazendaId}/midias`](#post-fazendasfazendaidmidias) | membro | Envia foto, áudio ou documento para o Storage |
@@ -267,6 +269,32 @@ Sai da fazenda. `204 No Content`. Erro: `409 ULTIMO_OWNER` se for o único owner
 pessoa antes).
 
 ## Convites
+
+O app convida por **código**: o dono gera, compartilha "Entre na minha fazenda: <código>" e o
+colaborador digita o código em "Entrar com código" (ou no cadastro). O convite por link
+(`POST /fazendas/{fazendaId}/convites`) continua aceito para versões antigas do app.
+
+### `POST /fazendas/{fazendaId}/convites/codigo`
+
+Só owner. Sem corpo. Gera um código de 6 caracteres (letras e números, sem 0/O e 1/I/L), que
+**vale 24 horas e para uma pessoa só**. Gerar outro não invalida os anteriores ainda não usados.
+
+`201 Created`
+
+```json
+{ "codigo": "K7M2QX", "mensagem": "Entre na minha fazenda: K7M2QX", "expiraEm": "2026-11-13T12:00:00Z" }
+```
+
+### `GET /fazendas/{fazendaId}/convites/codigo`
+
+Só owner. `200` com o último código ainda válido e não usado (mesmo corpo); `404 NAO_ENCONTRADO`
+se não houver.
+
+### Usar o código
+
+`POST /convites/aceitar` com `{ "token": "K7M2QX" }`, ou `conviteToken` no `/auth/registro`.
+Maiúsculas, espaços e hífen são ignorados. Código usado, vencido ou desconhecido:
+`410 CONVITE_INVALIDO`.
 
 ### `POST /fazendas/{fazendaId}/convites`
 

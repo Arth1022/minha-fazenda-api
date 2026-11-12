@@ -50,6 +50,13 @@ public class Convite {
 
     private Instant revogadoEm;
 
+    /**
+     * Código (6 caracteres) que o colaborador digita no app. Só existe no convite por código
+     * (vale 24 h): o dono pode ver o código de novo enquanto vale, então ele fica em texto além do hash.
+     */
+    @Column(updatable = false, columnDefinition = "text")
+    private String codigo;
+
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
@@ -61,6 +68,14 @@ public class Convite {
         this.criadoPor = criadoPor;
         this.expiraEm = expiraEm;
         this.usosMax = usosMax;
+    }
+
+    /** Convite por código: vale até expiraEm e para uma pessoa só. */
+    public static Convite codigoDaFazenda(Fazenda fazenda, String codigo, String codigoHash, UUID criadoPor,
+            Instant expiraEm) {
+        Convite convite = new Convite(fazenda, codigoHash, criadoPor, expiraEm, 1);
+        convite.codigo = codigo;
+        return convite;
     }
 
     public boolean estaValido(Instant agora) {

@@ -55,6 +55,7 @@ O ID de cada mudança aparece no `comment` dos changesets em
 | SC-046 | 2026-11-12 | usos_maquina | reparo: uso descartado (apagado) sem `fim` recebe `fim = deleted_at` | — | — | app | entity+changeset |
 | SC-047 | 2026-11-12 | storage.buckets | + bucket privado `midias` (fotos, áudios, documentos) | — | — | app | entity+changeset |
 | SC-048 | 2026-11-12 | (todas) | SELECT do papel de replicação do PowerSync em toda tabela, também nas futuras | — | — | back | entity+changeset |
+| SC-049 | 2026-11-12 | convites | + `codigo` (código de convite de 6 caracteres, único) | text | sim | app | entity+changeset |
 
 Todas as mudanças acima já estão aplicadas no projeto Supabase; passam a "API em produção" quando
 a API subir lá.
@@ -369,3 +370,7 @@ Regras desta leva:
 ## SC-048 — SELECT do PowerSync
 - Motivo: o GRANT original não cobria tabelas criadas depois; `tarefas` e `tarefa_eventos` davam permission denied no PowerSync e nunca desciam.
 - Changeset: db/changelog/changes/zzz-grant-powersync.yaml (runAlways)
+
+## SC-049 — convites.codigo
+- Motivo: convite simplificado para um código que o colaborador digita (24 h, uma pessoa). O hash vai em `token_hash` como no link; o texto fica em `codigo` para o dono ver de novo.
+- Changeset: db/changelog/changes/20261112140000-codigo-de-convite.yaml

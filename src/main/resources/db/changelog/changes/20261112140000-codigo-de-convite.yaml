@@ -1,0 +1,19 @@
+# SC-049 Convite por código: o dono gera um código de 6 caracteres (24 h, uma pessoa) e o
+# colaborador digita no app. O hash do código vai em token_hash (o aceite busca por ele, como no
+# link antigo); o texto fica em codigo para o dono ver de novo enquanto vale.
+databaseChangeLog:
+- changeSet:
+    id: 20261112140000-01
+    author: minhafazenda
+    comment: SC-049 convites.codigo
+    changes:
+    - addColumn:
+        tableName: convites
+        columns:
+        - column:
+            name: codigo
+            type: TEXT
+    - addUniqueConstraint:
+        tableName: convites
+        columnNames: codigo
+        constraintName: uk_convites_codigo
