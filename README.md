@@ -257,7 +257,8 @@ changeset e publica o `schema-colunas.json` como artefato.
 O banco e o Storage são o projeto **Minha Fazenda** no Supabase (`tbxmjakviucmhvkgmhpy`, região
 `sa-east-1`), com o schema aplicado, RLS ligado, a publication `powersync` e o bucket público
 `avatars`. A API roda no Render como Web Service Docker (`Dockerfile` na raiz), com o perfil
-`prod`.
+`prod`, em **https://minha-fazenda-api.onrender.com** (serviço `minha-fazenda-api`, plano Free, região
+Ohio). Cada push na `main` dispara um deploy novo.
 
 Variáveis do serviço no Render: as da tabela de [Configuração](#configuração). O banco usa a string
 do **Session pooler** do Supabase (porta 5432): o modo transaction (porta 6543) não serve para o
