@@ -21,7 +21,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Table(name = "convites",
-        uniqueConstraints = @UniqueConstraint(name = "uk_convites_token_hash", columnNames = "token_hash"),
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uk_convites_token_hash", columnNames = "token_hash"),
+                @UniqueConstraint(name = "uk_convites_codigo", columnNames = "codigo")
+        },
         indexes = @Index(name = "idx_convites_fazenda_id", columnList = "fazenda_id"))
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Convite {
