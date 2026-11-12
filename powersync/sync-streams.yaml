@@ -239,3 +239,17 @@ streams:
       SELECT * FROM usos_area WHERE fazenda_id IN (
         SELECT fazenda_id FROM fazenda_membros
         WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  tarefas:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM tarefas WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  tarefa_eventos:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM tarefa_eventos WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)

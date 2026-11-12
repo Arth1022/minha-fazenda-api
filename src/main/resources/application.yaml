@@ -81,6 +81,8 @@ sync:
     - ciclos_plantio
     - etapas_ciclo
     - usos_area
+    - tarefas
+    - tarefa_eventos
 
 permissoes:
   # TODO(decisao): collaborator pode apagar registros

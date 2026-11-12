@@ -48,6 +48,8 @@ O ID de cada mudança aparece no `comment` dos changesets em
 | SC-039 | 2026-11-11 | etapas_ciclo | + tabela de domínio | ver detalhe | ver detalhe | app | entity+changeset |
 | SC-040 | 2026-11-11 | usos_area | + tabela de domínio | ver detalhe | ver detalhe | app | entity+changeset |
 | SC-041 | 2026-11-11 | (as 7 tabelas da API e animais.nome) | colunas de texto passam de varchar(255) para text | text | — | app | entity+changeset |
+| SC-042 | 2026-11-12 | tarefas | + tabela de domínio | ver detalhe | ver detalhe | app | entity+changeset |
+| SC-043 | 2026-11-12 | tarefa_eventos | + tabela de domínio | ver detalhe | ver detalhe | app | entity+changeset |
 
 Todas as mudanças acima já estão aplicadas no projeto Supabase; passam a "API em produção" quando
 a API subir lá.
@@ -327,3 +329,15 @@ Regras desta leva:
   `usuarios.credencial_hash`, `usuarios.email`, `usuarios.nome`, `usuarios.telefone`
 - Changeset: db/changelog/changes/20261112013000-colunas-de-texto.yaml (escrito à mão: o `liquibase:diff` não
   detecta troca de tipo de coluna que já existe)
+
+## SC-042 — tarefas
+- Motivo: Tabela única para ocorrências e tarefas, sincronizada por fazenda.
+- Colunas, além das de `BaseFazendaEntity`: `titulo text`, `categoria text (enum)`, `origem text (enum)`, `descricao text`, `urgente boolean`, `status text (enum)`, `responsavel_id uuid`, `prazo timestamptz`, `area_id uuid`, `animal_id uuid`, `maquina_id uuid`, `maquina_parada boolean`, `audio_uri text`, `ponto_lat numeric`, `ponto_lng numeric`, `sync_status text (enum)`, `concluida_em timestamptz`
+- Sync Stream: `tarefas`
+- Changeset: db/changelog/changes/20261112024500-tarefas-e-eventos.yaml
+
+## SC-043 — tarefa_eventos
+- Motivo: Histórico append-only de cada tarefa.
+- Colunas, além das de `BaseFazendaEntity`: `tarefa_id uuid`, `tipo text (enum)`, `autor_id uuid`, `ocorrido_em timestamptz`, `texto text`, `dados jsonb`
+- Sync Stream: `tarefa_eventos`
+- Changeset: db/changelog/changes/20261112024500-tarefas-e-eventos.yaml

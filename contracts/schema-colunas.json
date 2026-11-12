@@ -1863,6 +1863,154 @@
   "column_name" : "fazenda_id",
   "data_type" : "uuid"
 }, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "tarefa_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "autor_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "ocorrido_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "texto",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefa_eventos",
+  "column_name" : "dados",
+  "data_type" : "jsonb"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "titulo",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "categoria",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "origem",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "urgente",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "status",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "responsavel_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "prazo",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "area_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "maquina_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "maquina_parada",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "audio_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "ponto_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "ponto_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "sync_status",
+  "data_type" : "text"
+}, {
+  "table_name" : "tarefas",
+  "column_name" : "concluida_em",
+  "data_type" : "timestamp with time zone"
+}, {
   "table_name" : "tratamentos",
   "column_name" : "id",
   "data_type" : "uuid"

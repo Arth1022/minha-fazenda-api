@@ -21,8 +21,15 @@ import com.minhafazenda.apoio.Conta;
 import com.minhafazenda.apoio.IntegracaoTest;
 import com.minhafazenda.entity.Animal;
 import com.minhafazenda.entity.Talhao;
+import com.minhafazenda.entity.Tarefa;
+import com.minhafazenda.entity.TarefaEvento;
+import com.minhafazenda.enums.CategoriaTarefa;
+import com.minhafazenda.enums.OrigemTarefa;
 import com.minhafazenda.enums.Sexo;
 import com.minhafazenda.enums.StatusAnimal;
+import com.minhafazenda.enums.StatusTarefa;
+import com.minhafazenda.enums.SyncStatus;
+import com.minhafazenda.enums.TipoEventoTarefa;
 import com.minhafazenda.enums.TipoTalhao;
 
 import jakarta.persistence.EntityManager;
@@ -108,5 +115,50 @@ class DominioSyncIntegrationTest extends IntegracaoTest {
                 .andExpect(jsonPath("$.rejeitadas[0].codigo").value("VALIDACAO"));
 
         assertThat(jdbc.queryForObject("select count(*) from pesagens where id = ?", Integer.class, pesagem)).isZero();
+    }
+
+    @Test
+    void tarefasEEventosSincronizamComTiposEEnumsCorretos() throws Exception {
+        Conta conta = api.registrarComFazenda();
+        UUID tarefaId = UUID.randomUUID();
+        UUID eventoId = UUID.randomUUID();
+        String fazendaId = conta.fazendaId().toString();
+
+        api.sync(conta, List.of(
+                put("tarefas", tarefaId, Map.ofEntries(
+                        entry("fazenda_id", fazendaId),
+                        entry("titulo", "Consertar cerca"),
+                        entry("categoria", "cerca"),
+                        entry("origem", "ocorrencia"),
+                        entry("descricao", "Cerca rompida no pasto"),
+                        entry("urgente", true),
+                        entry("status", "aberta"),
+                        entry("maquina_parada", false),
+                        entry("sync_status", "pendente"),
+                        entry("ponto_lat", -21.12345),
+                        entry("ponto_lng", -47.98765))),
+                put("tarefa_eventos", eventoId, Map.ofEntries(
+                        entry("fazenda_id", fazendaId),
+                        entry("tarefa_id", tarefaId.toString()),
+                        entry("tipo", "criada"),
+                        entry("texto", "Tarefa criada pelo operador"),
+                        entry("dados", "{\"fotos\":[\"file://foto1.jpg\"]}")))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.aplicadas").value(2));
+
+        Tarefa tarefa = entityManager.find(Tarefa.class, tarefaId);
+        assertThat(tarefa.getTitulo()).isEqualTo("Consertar cerca");
+        assertThat(tarefa.getCategoria()).isEqualTo(CategoriaTarefa.CERCA);
+        assertThat(tarefa.getOrigem()).isEqualTo(OrigemTarefa.OCORRENCIA);
+        assertThat(tarefa.getStatus()).isEqualTo(StatusTarefa.ABERTA);
+        assertThat(tarefa.getSyncStatus()).isEqualTo(SyncStatus.PENDENTE);
+        assertThat(tarefa.getUrgente()).isTrue();
+        assertThat(tarefa.getMaquinaParada()).isFalse();
+
+        TarefaEvento evento = entityManager.find(TarefaEvento.class, eventoId);
+        assertThat(evento.getTarefaId()).isEqualTo(tarefaId);
+        assertThat(evento.getTipo()).isEqualTo(TipoEventoTarefa.CRIADA);
+        assertThat(evento.getTexto()).isEqualTo("Tarefa criada pelo operador");
+        assertThat(evento.getDados()).contains("file://foto1.jpg");
     }
 }
