@@ -635,6 +635,10 @@
   "column_name" : "fazenda_id",
   "data_type" : "uuid"
 }, {
+  "table_name" : "convites",
+  "column_name" : "codigo",
+  "data_type" : "text"
+}, {
   "table_name" : "databasechangelog",
   "column_name" : "id",
   "data_type" : "character varying"
