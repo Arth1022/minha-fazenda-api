@@ -1,0 +1,241 @@
+databaseChangeLog:
+- changeSet:
+    id: 20261112024500-01
+    author: minhafazenda
+    comment: SC-042 tabela tarefas
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tarefasPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: titulo
+            type: TEXT
+        - column:
+            name: categoria
+            type: TEXT
+        - column:
+            name: origem
+            type: TEXT
+        - column:
+            name: descricao
+            type: TEXT
+        - column:
+            name: urgente
+            type: BOOLEAN
+        - column:
+            name: status
+            type: TEXT
+        - column:
+            name: responsavel_id
+            type: UUID
+        - column:
+            name: prazo
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: area_id
+            type: UUID
+        - column:
+            name: animal_id
+            type: UUID
+        - column:
+            name: maquina_id
+            type: UUID
+        - column:
+            name: maquina_parada
+            type: BOOLEAN
+        - column:
+            name: audio_uri
+            type: TEXT
+        - column:
+            name: ponto_lat
+            type: numeric
+        - column:
+            name: ponto_lng
+            type: numeric
+        - column:
+            name: sync_status
+            type: TEXT
+        - column:
+            name: concluida_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: tarefas
+
+- changeSet:
+    id: 20261112024500-02
+    author: minhafazenda
+    comment: SC-043 tabela tarefa_eventos
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tarefa_eventosPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: tarefa_id
+            type: UUID
+        - column:
+            name: tipo
+            type: TEXT
+        - column:
+            name: autor_id
+            type: UUID
+        - column:
+            name: ocorrido_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: texto
+            type: TEXT
+        - column:
+            name: dados
+            type: JSONB
+        tableName: tarefa_eventos
+
+- changeSet:
+    id: 20261112024500-03
+    author: minhafazenda
+    comment: SC-042 indices tarefas
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: tarefas_fazenda_idx
+        tableName: tarefas
+    - createIndex:
+        columns:
+        - column:
+            name: status
+        - column:
+            name: responsavel_id
+        - column:
+            name: urgente
+        indexName: tarefas_status_responsavel_urgente_idx
+        tableName: tarefas
+    - createIndex:
+        columns:
+        - column:
+            name: responsavel_id
+        - column:
+            name: urgente
+        - column:
+            name: prazo
+        indexName: tarefas_responsavel_urgente_prazo_idx
+        tableName: tarefas
+    - createIndex:
+        columns:
+        - column:
+            name: animal_id
+        indexName: tarefas_animal_id_idx
+        tableName: tarefas
+    - createIndex:
+        columns:
+        - column:
+            name: maquina_id
+        indexName: tarefas_maquina_id_idx
+        tableName: tarefas
+    - createIndex:
+        columns:
+        - column:
+            name: area_id
+        indexName: tarefas_area_id_idx
+        tableName: tarefas
+
+- changeSet:
+    id: 20261112024500-04
+    author: minhafazenda
+    comment: SC-043 indices tarefa_eventos
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: tarefa_eventos_fazenda_idx
+        tableName: tarefa_eventos
+    - createIndex:
+        columns:
+        - column:
+            name: tarefa_id
+        - column:
+            name: ocorrido_em
+        indexName: tarefa_eventos_tarefa_ocorrido_idx
+        tableName: tarefa_eventos
+
+- changeSet:
+    id: 20261112024500-05
+    author: minhafazenda
+    comment: SC-042 foreign key tarefas
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: tarefas
+        constraintName: fk_tarefas_fazenda_id
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+
+- changeSet:
+    id: 20261112024500-06
+    author: minhafazenda
+    comment: SC-043 foreign key tarefa_eventos
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: tarefa_eventos
+        constraintName: fk_tarefa_eventos_fazenda_id
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
