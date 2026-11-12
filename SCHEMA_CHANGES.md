@@ -53,6 +53,8 @@ O ID de cada mudança aparece no `comment` dos changesets em
 | SC-044 | 2026-11-12 | calculos_cerca, talhoes, maquinas, abastecimentos, leituras_horimetro, animais | renomeia 8 colunas com sufixo de unidade para snake_case (`espacamentom` → `espacamento_m` etc.) | — | — | app | entity+changeset |
 | SC-045 | 2026-11-12 | tarefa_eventos | `dados` de jsonb para text | text | sim | app | entity+changeset |
 | SC-046 | 2026-11-12 | usos_maquina | reparo: uso descartado (apagado) sem `fim` recebe `fim = deleted_at` | — | — | app | entity+changeset |
+| SC-047 | 2026-11-12 | storage.buckets | + bucket privado `midias` (fotos, áudios, documentos) | — | — | app | entity+changeset |
+| SC-048 | 2026-11-12 | (todas) | SELECT do papel de replicação do PowerSync em toda tabela, também nas futuras | — | — | back | entity+changeset |
 
 Todas as mudanças acima já estão aplicadas no projeto Supabase; passam a "API em produção" quando
 a API subir lá.
@@ -358,3 +360,12 @@ Regras desta leva:
 ## SC-046 — reparo de usos descartados
 - Motivo: uso ligado sem querer era apagado sem `fim`; telas que olhavam só `fim IS NULL` mostravam a máquina em uso para sempre. O app agora grava `fim` junto com `deleted_at`.
 - Changeset: db/changelog/changes/20261112120000-corrige-colunas-do-sync.yaml
+
+## SC-047 — bucket midias
+- Motivo: fotos e áudios ficavam só no celular (a coluna guardava `file://`). Agora sobem para o Storage pela API (`/fazendas/{id}/midias`).
+- Privado; leitura por URL assinada de 60 min. Pastas: `{fazendaId}/imagens|audios|documentos/{id}.{ext}`.
+- Changeset: db/changelog/changes/20261112130000-bucket-midias.yaml (pulado fora do Supabase)
+
+## SC-048 — SELECT do PowerSync
+- Motivo: o GRANT original não cobria tabelas criadas depois; `tarefas` e `tarefa_eventos` davam permission denied no PowerSync e nunca desciam.
+- Changeset: db/changelog/changes/zzz-grant-powersync.yaml (runAlways)

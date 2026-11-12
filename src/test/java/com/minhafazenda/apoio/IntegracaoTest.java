@@ -18,7 +18,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles({"dev", "test"})
-@Import({ApiDeTeste.class, ArmazenamentoEmMemoria.class, ValidadorDeNomeProibido.class})
+@Import({ApiDeTeste.class, ArmazenamentoEmMemoria.class, ArmazenamentoMidiaEmMemoria.class, ValidadorDeNomeProibido.class})
 public abstract class IntegracaoTest {
 
     private static final PostgreSQLContainer POSTGRES = new PostgreSQLContainer("postgres:15-alpine");

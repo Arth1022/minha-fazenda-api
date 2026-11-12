@@ -117,6 +117,19 @@ public class ApiDeTeste {
                 .header(HttpHeaders.AUTHORIZATION, conta.bearer()));
     }
 
+    public ResultActions enviarMidia(Conta conta, UUID fazendaId, String tipo, UUID id, byte[] conteudo)
+            throws Exception {
+        MockMultipartFile arquivo = new MockMultipartFile("arquivo", "arquivo", "application/octet-stream", conteudo);
+        var requisicao = MockMvcRequestBuilders.multipart(HttpMethod.POST, "/fazendas/" + fazendaId + "/midias")
+                .file(arquivo)
+                .param("tipo", tipo)
+                .header(HttpHeaders.AUTHORIZATION, conta.bearer());
+        if (id != null) {
+            requisicao.param("id", id.toString());
+        }
+        return mvc.perform(requisicao);
+    }
+
     public ResultActions sync(Conta conta, List<Map<String, Object>> ops) throws Exception {
         return sync(conta, SCHEMA_VERSION, ops);
     }

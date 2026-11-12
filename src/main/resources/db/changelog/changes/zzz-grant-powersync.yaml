@@ -1,0 +1,27 @@
+# Roda por último e em toda subida (runAlways), como o de RLS.
+# O PowerSync replica com um papel próprio (powersync_<id>, com REPLICATION) que precisa de
+# SELECT em cada tabela publicada. O GRANT original foi feito à mão e não cobria tabelas criadas
+# depois: tarefas e tarefa_eventos ficaram sem permissão e nunca desciam para os celulares
+# (a ocorrência criada sumia depois do sync). Só existe no Supabase; localmente não faz nada.
+databaseChangeLog:
+  - changeSet:
+      id: sc-048-grant-select-powersync
+      author: minhafazenda
+      runAlways: true
+      comment: SC-048 SELECT do papel de replicação do PowerSync em toda tabela do schema
+      changes:
+        - sql:
+            splitStatements: false
+            sql: |
+              DO $$
+              DECLARE
+                papel text;
+              BEGIN
+                FOR papel IN
+                  SELECT rolname FROM pg_roles WHERE rolname LIKE 'powersync\_%' AND rolreplication
+                LOOP
+                  EXECUTE format('GRANT SELECT ON ALL TABLES IN SCHEMA %I TO %I', current_schema(), papel);
+                  EXECUTE format('ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON TABLES TO %I',
+                                 current_schema(), papel);
+                END LOOP;
+              END $$;

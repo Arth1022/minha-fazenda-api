@@ -17,9 +17,10 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.yaml
   servlet:
     multipart:
-      # Margem acima dos 5 MB para o limite ser respondido pela API no formato do contrato
-      max-file-size: 6MB
-      max-request-size: 7MB
+      # Margem acima do maior limite (áudio, 20 MB) para o limite ser respondido pela API
+      # no formato do contrato; cada rota confere o próprio limite (avatar 5 MB, foto 10 MB)
+      max-file-size: 21MB
+      max-request-size: 22MB
 
 jwt:
   private-key: ${JWT_PRIVATE_KEY}
@@ -41,6 +42,11 @@ storage:
   secret: ${STORAGE_SECRET}
   bucket: ${STORAGE_BUCKET:avatars}
   public-url: ${STORAGE_PUBLIC_URL}
+
+midia:
+  # Bucket privado das fotos, áudios e documentos das fazendas (criado pelo changeset SC-047)
+  bucket: ${STORAGE_BUCKET_MIDIAS:midias}
+  validade-url-minutos: 60
 
 convite:
   link-base: ${APP_LINK_BASE}

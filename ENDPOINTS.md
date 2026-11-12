@@ -31,6 +31,9 @@ https://minha-fazenda-api.onrender.com
 | `POST` | [`/fazendas/{fazendaId}/convites`](#post-fazendasfazendaidconvites) | owner | Gera um link de convite |
 | `DELETE` | [`/convites/{id}`](#delete-convitesid) | owner | Revoga um convite |
 | `POST` | [`/convites/aceitar`](#post-convitesaceitar) | sim | Entra na fazenda do convite |
+| `POST` | [`/fazendas/{fazendaId}/midias`](#post-fazendasfazendaidmidias) | membro | Envia foto, áudio ou documento para o Storage |
+| `GET` | [`/fazendas/{fazendaId}/midias/url`](#get-fazendasfazendaidmidiasurl) | membro | URL assinada para baixar ou tocar |
+| `DELETE` | [`/fazendas/{fazendaId}/midias`](#delete-fazendasfazendaidmidias) | membro | Apaga o arquivo do Storage |
 | `POST` | [`/sync/upload`](#post-syncupload) | membro | Envia a fila de escritas do PowerSync |
 | `GET` | [`/ping`](#get-ping) | — | Saúde da API |
 | `GET` | [`/.well-known/jwks.json`](#get-well-knownjwksjson) | — | Chave pública (usada pelo PowerSync) |
@@ -301,6 +304,45 @@ Para quem já tem conta. Quem ainda não tem conta usa `conviteToken` no `/auth/
 ```
 
 Entra como collaborator. Erro: `410 CONVITE_INVALIDO`.
+
+## Mídia
+
+Fotos, áudios e documentos ficam no bucket **privado** `midias` do Supabase Storage, numa pasta
+por fazenda e por tipo: `{fazendaId}/imagens/…`, `{fazendaId}/audios/…`, `{fazendaId}/documentos/…`.
+Nada tem link público: a leitura é por URL assinada, válida por 60 minutos, só para membros.
+
+O registro que usa o arquivo guarda `midia:<caminho>` na coluna (`foto_uri`, `comprovante_uri`,
+`audio_uri` ou a lista `fotos` de `tarefa_eventos.dados`) e sobe pelo sync normal. Enquanto o
+arquivo não sobe, a coluna guarda o `file://` local do celular que o criou.
+
+### `POST /fazendas/{fazendaId}/midias`
+
+Multipart: `arquivo` (o arquivo), `tipo` (`imagem`, `audio` ou `documento`) e `id` (UUID,
+opcional). Com o mesmo `id`, o arquivo cai no mesmo caminho: repetir o envio é seguro.
+
+| Tipo | Formatos (pelos bytes, não pela extensão) | Limite |
+|---|---|---|
+| `imagem` | JPEG, PNG, WebP → regravada em JPEG sem EXIF, maior lado até 1920 px | 10 MB |
+| `audio` | M4A/MP4, MP3, AAC, OGG, WebM, WAV | 20 MB |
+| `documento` | PDF | 10 MB |
+
+`201 Created`
+
+```json
+{ "caminho": "uuid-fazenda/audios/uuid.m4a", "url": "https://…?X-Amz-Signature=…", "expiraEm": "2026-11-12T13:00:00Z" }
+```
+
+Erros: `403 SEM_PERMISSAO` (não é membro), `413 ARQUIVO_GRANDE`, `415 FORMATO_INVALIDO`, `400 VALIDACAO` (tipo desconhecido).
+
+### `GET /fazendas/{fazendaId}/midias/url`
+
+Query `caminho` (sem o prefixo `midia:`). `200` com o mesmo corpo do envio. O caminho precisa ser
+da fazenda da rota (`403` se não for). `404 NAO_ENCONTRADO` se o arquivo não existe.
+
+### `DELETE /fazendas/{fazendaId}/midias`
+
+Query `caminho`. `204 No Content`. Collaborator só apaga se a configuração permitir (a mesma regra
+do sync).
 
 ## Sync
 

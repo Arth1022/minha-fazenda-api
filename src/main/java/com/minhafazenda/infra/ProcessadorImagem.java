@@ -34,13 +34,41 @@ public class ProcessadorImagem {
         return regravar(original);
     }
 
-    private static void exigirDimensoesSuportadas(byte[] original) {
-        if (contarPixels(original) > MAXIMO_DE_PIXELS) {
-            throw new ApiException(CodigoErro.ARQUIVO_GRANDE, "A foto tem dimensões grandes demais.");
+    /**
+     * Foto de registro (ocorrência, comprovante, horímetro): mantém a proporção, limita o maior
+     * lado e regrava em JPEG sem EXIF. Comprovante precisa continuar legível, por isso o lado é
+     * bem maior que o do avatar.
+     */
+    public byte[] paraJpegReduzido(byte[] original, int ladoMaximo) {
+        if (FormatoImagem.detectar(original).isEmpty()) {
+            throw new ApiException(CodigoErro.FORMATO_INVALIDO, "A imagem precisa ser JPEG, PNG ou WebP.");
         }
+        int[] lados = exigirDimensoesSuportadas(original);
+        ByteArrayOutputStream saida = new ByteArrayOutputStream();
+        try {
+            Thumbnails.Builder<?> imagem = Thumbnails.of(new ByteArrayInputStream(original));
+            if (Math.max(lados[0], lados[1]) > ladoMaximo) {
+                imagem.size(ladoMaximo, ladoMaximo);
+            } else {
+                imagem.scale(1.0);
+            }
+            imagem.outputFormat("jpg").outputQuality(QUALIDADE_JPEG).toOutputStream(saida);
+        } catch (IOException | RuntimeException e) {
+            throw new ApiException(CodigoErro.FORMATO_INVALIDO, "A imagem precisa ser JPEG, PNG ou WebP.");
+        }
+        return saida.toByteArray();
     }
 
-    private static long contarPixels(byte[] original) {
+    /** Largura e altura lidas do cabeçalho, sem decodificar a imagem. */
+    private static int[] exigirDimensoesSuportadas(byte[] original) {
+        int[] lados = dimensoes(original);
+        if ((long) lados[0] * lados[1] > MAXIMO_DE_PIXELS) {
+            throw new ApiException(CodigoErro.ARQUIVO_GRANDE, "A foto tem dimensões grandes demais.");
+        }
+        return lados;
+    }
+
+    private static int[] dimensoes(byte[] original) {
         try (ImageInputStream entrada = ImageIO.createImageInputStream(new ByteArrayInputStream(original))) {
             Iterator<ImageReader> leitores = ImageIO.getImageReaders(entrada);
             if (!leitores.hasNext()) {
@@ -49,7 +77,7 @@ public class ProcessadorImagem {
             ImageReader leitor = leitores.next();
             try {
                 leitor.setInput(entrada);
-                return (long) leitor.getWidth(0) * leitor.getHeight(0);
+                return new int[] {leitor.getWidth(0), leitor.getHeight(0)};
             } finally {
                 leitor.dispose();
             }

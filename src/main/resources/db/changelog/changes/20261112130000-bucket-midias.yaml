@@ -1,0 +1,28 @@
+# SC-047 Bucket privado das mídias das fazendas (fotos, áudios, documentos).
+# Só existe no Supabase (schema storage); no Postgres local e nos testes o changeset é pulado.
+# Privado: a leitura é sempre por URL assinada gerada pela API para quem é membro da fazenda.
+databaseChangeLog:
+- changeSet:
+    id: 20261112130000-01
+    author: minhafazenda
+    comment: SC-047 bucket privado midias no Supabase Storage
+    preConditions:
+    - onFail: MARK_RAN
+    - tableExists:
+        schemaName: storage
+        tableName: buckets
+    changes:
+    - sql:
+        splitStatements: false
+        sql: |
+          DO $$
+          BEGIN
+            INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+            VALUES ('midias', 'midias', false, 20971520,
+                    ARRAY['image/jpeg', 'audio/mp4', 'audio/mpeg', 'audio/aac', 'audio/ogg',
+                          'audio/webm', 'audio/wav', 'application/pdf'])
+            ON CONFLICT (id) DO UPDATE SET public = false;
+          EXCEPTION WHEN insufficient_privilege THEN
+            -- Sem permissão no schema storage: crie o bucket "midias" (privado) pelo painel
+            RAISE WARNING 'bucket midias não criado: sem permissão em storage.buckets';
+          END $$;
