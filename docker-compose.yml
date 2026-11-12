@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: minhafazenda-postgres
+    command: ["postgres", "-c", "wal_level=logical"]
+    environment:
+      POSTGRES_DB: minhafazenda
+      POSTGRES_USER: minhafazenda
+      POSTGRES_PASSWORD: minhafazenda
+    ports:
+      - "54322:5432"
+    volumes:
+      - minhafazenda-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U minhafazenda -d minhafazenda"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  minhafazenda-pgdata:

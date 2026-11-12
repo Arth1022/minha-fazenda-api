@@ -1,0 +1,3000 @@
+databaseChangeLog:
+- changeSet:
+    id: 1794446998869-1
+    author: minhafazenda (liquibase:diff)
+    comment: SC-029 tabela abastecimentos
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: abastecimentosPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: abastecido_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: foto_uri
+            type: TEXT
+        - column:
+            name: horimetroh
+            type: numeric
+        - column:
+            name: lat
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: litros
+            type: numeric
+        - column:
+            name: lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: maquina_id
+            type: UUID
+        - column:
+            name: operador
+            type: TEXT
+        - column:
+            name: operador_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: origem
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: tanque_cheio
+            type: BOOLEAN
+        - column:
+            name: uso_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: abastecimentos
+- changeSet:
+    id: 1794446998869-2
+    author: minhafazenda (liquibase:diff)
+    comment: SC-024 tabela anotacoes_animal
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: anotacoes_animalPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: texto
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: anotacoes_animal
+- changeSet:
+    id: 1794446998869-3
+    author: minhafazenda (liquibase:diff)
+    comment: SC-032 tabela anotacoes_maquina
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: anotacoes_maquinaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: maquina_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: texto
+            type: TEXT
+        - column:
+            name: uso_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: anotacoes_maquina
+- changeSet:
+    id: 1794446998869-4
+    author: minhafazenda (liquibase:diff)
+    comment: SC-018 tabela avaliacoes_corporais
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: avaliacoes_corporaisPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: escore
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: avaliacoes_corporais
+- changeSet:
+    id: 1794446998869-5
+    author: minhafazenda (liquibase:diff)
+    comment: SC-036 tabela calculos_cerca
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: calculos_cercaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: area_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: cantos
+            type: INTEGER
+        - column:
+            name: custo
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: desatualizado
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: espacamentom
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: esticadores
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: fios
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: metros_arame
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: mouroes
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: perimetrom
+            type: numeric
+        - column:
+            name: preco_esticador
+            type: numeric
+        - column:
+            name: preco_mourao
+            type: numeric
+        - column:
+            name: preco_rolo
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: rolos
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: tipo_cerca
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: calculos_cerca
+- changeSet:
+    id: 1794446998869-6
+    author: minhafazenda (liquibase:diff)
+    comment: SC-038 tabela ciclos_plantio
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ciclos_plantioPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: area_ha
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: area_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: calculo_desatualizado
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: cultura
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: data_plantio
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: encerrado_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: modelo_id
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: saco_kg
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: sacos
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: sementes_kg
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: taxa_kg_ha
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: ciclos_plantio
+- changeSet:
+    id: 1794446998869-7
+    author: minhafazenda (liquibase:diff)
+    comment: SC-022 tabela cios
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ciosPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: observacoes
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: cios
+- changeSet:
+    id: 1794446998869-8
+    author: minhafazenda (liquibase:diff)
+    comment: SC-019 tabela controles_leiteiros
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: controles_leiteirosPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: litros
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: controles_leiteiros
+- changeSet:
+    id: 1794446998869-9
+    author: minhafazenda (liquibase:diff)
+    comment: SC-017 tabela doses_aplicadas
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: doses_aplicadasPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: dia
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: tratamento_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: doses_aplicadas
+- changeSet:
+    id: 1794446998869-10
+    author: minhafazenda (liquibase:diff)
+    comment: SC-039 tabela etapas_ciclo
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: etapas_cicloPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: atribuida_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: atribuida_por
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: ciclo_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: TEXT
+        - column:
+            name: observacao
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: ordem
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: prevista_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: realizada_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: responsavel_id
+            type: UUID
+        - column:
+            name: responsavel_nome
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: etapas_ciclo
+- changeSet:
+    id: 1794446998869-11
+    author: minhafazenda (liquibase:diff)
+    comment: SC-023 tabela exames
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: examesPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            name: comprovante_uri
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: descricao
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: resultado
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            name: validade_dias
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: exames
+- changeSet:
+    id: 1794446998869-12
+    author: minhafazenda (liquibase:diff)
+    comment: SC-011 tabela fazenda_config
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: fazenda_configPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: area_hectares
+            type: numeric
+        - column:
+            name: divisa_json
+            type: TEXT
+        - column:
+            name: max_lat
+            type: numeric
+        - column:
+            name: max_lng
+            type: numeric
+        - column:
+            name: min_lat
+            type: numeric
+        - column:
+            name: min_lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: tipo_producao
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: fazenda_config
+- changeSet:
+    id: 1794446998869-13
+    author: minhafazenda (liquibase:diff)
+    comment: SC-030 tabela leituras_horimetro
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: leituras_horimetroPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: estimadoh
+            type: numeric
+        - column:
+            name: foto_uri
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: lido_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: maquina_id
+            type: UUID
+        - column:
+            name: operador
+            type: TEXT
+        - column:
+            name: operador_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: origem
+            type: TEXT
+        - column:
+            name: uso_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: valorh
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: leituras_horimetro
+- changeSet:
+    id: 1794446998869-14
+    author: minhafazenda (liquibase:diff)
+    comment: SC-012 tabela lotes
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: lotesPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: area_desde
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: area_id
+            type: UUID
+        - column:
+            name: descricao
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: lotes
+- changeSet:
+    id: 1794446998869-15
+    author: minhafazenda (liquibase:diff)
+    comment: SC-026 tabela maquinas
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: maquinasPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: ano_fabricacao
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: categoria
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: codigo
+            type: TEXT
+        - column:
+            name: combustivel
+            type: TEXT
+        - column:
+            name: data_aquisicao
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: horimetro_inicial
+            type: numeric
+        - column:
+            name: largura_trabalhom
+            type: numeric
+        - column:
+            name: marca
+            type: TEXT
+        - column:
+            name: modelo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: TEXT
+        - column:
+            name: numero_serie
+            type: TEXT
+        - column:
+            name: placa
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: possui_horimetro
+            type: BOOLEAN
+        - column:
+            name: potencia_cv
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: TEXT
+        - column:
+            name: tanque_litros
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            name: velocidade_max_kmh
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: maquinas
+- changeSet:
+    id: 1794446998869-16
+    author: minhafazenda (liquibase:diff)
+    comment: SC-034 tabela marcadores_mapa
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: marcadores_mapaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: descricao
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: lat
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: resolvido
+            type: BOOLEAN
+        - column:
+            name: talhao_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: titulo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: marcadores_mapa
+- changeSet:
+    id: 1794446998869-17
+    author: minhafazenda (liquibase:diff)
+    comment: SC-021 tabela mastites
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: mastitesPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: observacoes
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: tetos
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: mastites
+- changeSet:
+    id: 1794446998869-18
+    author: minhafazenda (liquibase:diff)
+    comment: SC-037 tabela modelos_cultura
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: modelos_culturaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: etapas
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: saco_kg
+            type: numeric
+        - column:
+            name: taxa_kg_ha
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: modelos_cultura
+- changeSet:
+    id: 1794446998869-19
+    author: minhafazenda (liquibase:diff)
+    comment: SC-035 tabela movimentacoes
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: movimentacoesPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: area_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: entrada_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: lote_id
+            type: UUID
+        - column:
+            name: registrado_por
+            type: TEXT
+        - column:
+            name: registrado_por_id
+            type: UUID
+        - column:
+            name: saida_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: movimentacoes
+- changeSet:
+    id: 1794446998869-20
+    author: minhafazenda (liquibase:diff)
+    comment: SC-031 tabela ocorrencias_maquina
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ocorrencias_maquinaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: categoria
+            type: TEXT
+        - column:
+            name: descricao
+            type: TEXT
+        - column:
+            name: foto_uri
+            type: TEXT
+        - column:
+            name: lat
+            type: numeric
+        - column:
+            name: lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: maquina_id
+            type: UUID
+        - column:
+            name: operador
+            type: TEXT
+        - column:
+            name: operador_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: pode_usar
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: registrado_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: resolvida_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: uso_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: ocorrencias_maquina
+- changeSet:
+    id: 1794446998869-21
+    author: minhafazenda (liquibase:diff)
+    comment: SC-025 tabela ordenhas
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ordenhasPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: data_registro
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: horario_notificacao
+            type: TEXT
+        - column:
+            name: horario_previsto
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: periodo
+            type: TEXT
+        - column:
+            name: volume_litros
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: ordenhas
+- changeSet:
+    id: 1794446998869-22
+    author: minhafazenda (liquibase:diff)
+    comment: SC-028 tabela paradas_uso
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: paradas_usoPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: fim
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: inicio
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: motivo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: uso_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: paradas_uso
+- changeSet:
+    id: 1794446998869-23
+    author: minhafazenda (liquibase:diff)
+    comment: SC-014 tabela pesagens
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pesagensPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: metodo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: peso_kg
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: pesagens
+- changeSet:
+    id: 1794446998869-24
+    author: minhafazenda (liquibase:diff)
+    comment: SC-015 tabela reproducoes
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: reproducoesPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            name: cria_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: data_aborto
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: data_diagnostico
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: data_parto
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: metodo_diagnostico
+            type: TEXT
+        - column:
+            name: prenhez_confirmada
+            type: BOOLEAN
+        - column:
+            name: previsao_parto
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            name: touro_descricao
+            type: TEXT
+        - column:
+            name: touro_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: reproducoes
+- changeSet:
+    id: 1794446998869-25
+    author: minhafazenda (liquibase:diff)
+    comment: SC-020 tabela secagens
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: secagensPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: data
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: secagens
+- changeSet:
+    id: 1794446998869-26
+    author: minhafazenda (liquibase:diff)
+    comment: SC-033 tabela talhoes
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: talhoesPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: area_hectares
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: centro_lat
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: centro_lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: cor
+            type: TEXT
+        - column:
+            name: cultura
+            type: TEXT
+        - column:
+            name: data_plantio
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: fase_lavoura
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: geometria_json
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: max_lat
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: max_lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: min_lat
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: min_lng
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: TEXT
+        - column:
+            name: perimetrom
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: talhoes
+- changeSet:
+    id: 1794446998869-27
+    author: minhafazenda (liquibase:diff)
+    comment: SC-016 tabela tratamentos
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tratamentosPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: animal_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: aviso_minutos_antes
+            type: INTEGER
+        - column:
+            name: carencia_carne_dias
+            type: INTEGER
+        - column:
+            name: carencia_leite_dias
+            type: INTEGER
+        - column:
+            name: comprovante_uri
+            type: TEXT
+        - column:
+            name: data_fim
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: data_inicio
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: dias_semana
+            type: TEXT
+        - column:
+            name: dose
+            type: TEXT
+        - column:
+            name: grupo_aplicacao_id
+            type: UUID
+        - column:
+            name: horario
+            type: TEXT
+        - column:
+            name: intervalo_horas
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: medicamento
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: notificacao_ativa
+            type: BOOLEAN
+        - column:
+            name: observacoes
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: tratamentos
+- changeSet:
+    id: 1794446998869-28
+    author: minhafazenda (liquibase:diff)
+    comment: SC-040 tabela usos_area
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: usos_areaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: area_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: inicio
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: km
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: segundos
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: uso_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: usos_area
+- changeSet:
+    id: 1794446998869-29
+    author: minhafazenda (liquibase:diff)
+    comment: SC-027 tabela usos_maquina
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: usos_maquinaPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: area_estimada_ha
+            type: numeric
+        - column:
+            name: atividade
+            type: TEXT
+        - column:
+            name: continua_ate
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: fim
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: fim_lat
+            type: numeric
+        - column:
+            name: fim_lng
+            type: numeric
+        - column:
+            name: fim_motivo
+            type: TEXT
+        - column:
+            name: implemento_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: inicio
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: inicio_lat
+            type: numeric
+        - column:
+            name: inicio_lng
+            type: numeric
+        - column:
+            name: km_total
+            type: numeric
+        - column:
+            name: km_trabalhando
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: localizacao_simulada
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: maquina_id
+            type: UUID
+        - column:
+            name: operador
+            type: TEXT
+        - column:
+            name: operador_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: origem
+            type: TEXT
+        - column:
+            name: parada_avisada_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: qualidade
+            type: numeric
+        - column:
+            constraints:
+              nullable: false
+            name: rastreado
+            type: BOOLEAN
+        - column:
+            name: rastro
+            type: TEXT
+        - column:
+            name: regras_desde
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: seg_deslocando
+            type: INTEGER
+        - column:
+            name: seg_parada
+            type: INTEGER
+        - column:
+            name: seg_pausa
+            type: INTEGER
+        - column:
+            name: seg_sem_sinal
+            type: INTEGER
+        - column:
+            name: seg_trabalhando
+            type: INTEGER
+        - column:
+            name: talhoes
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: usos_maquina
+- changeSet:
+    id: 1794446998869-30
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: brinco
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-31
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: crias_anteriores
+            type: INTEGER
+        tableName: animais
+- changeSet:
+    id: 1794446998869-32
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: data_desmame
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: animais
+- changeSet:
+    id: 1794446998869-33
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: data_entrada
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: animais
+- changeSet:
+    id: 1794446998869-34
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: data_nascimento
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: animais
+- changeSet:
+    id: 1794446998869-35
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: data_saida
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: animais
+- changeSet:
+    id: 1794446998869-36
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: foto_uri
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-37
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: grau_sangue
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-38
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ja_pariu
+            type: BOOLEAN
+        tableName: animais
+- changeSet:
+    id: 1794446998869-39
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: lote_id
+            type: UUID
+        tableName: animais
+- changeSet:
+    id: 1794446998869-40
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: mae_id
+            type: UUID
+        tableName: animais
+- changeSet:
+    id: 1794446998869-41
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: motivo_saida
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-42
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: nascimento_aproximado
+            type: BOOLEAN
+        tableName: animais
+- changeSet:
+    id: 1794446998869-43
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: origem
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-44
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: pai_descricao
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-45
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: pai_id
+            type: UUID
+        tableName: animais
+- changeSet:
+    id: 1794446998869-46
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: parto_assistido
+            type: BOOLEAN
+        tableName: animais
+- changeSet:
+    id: 1794446998869-47
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: peso_saida_kg
+            type: numeric
+        tableName: animais
+- changeSet:
+    id: 1794446998869-48
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: producao_leitel
+            type: numeric
+        tableName: animais
+- changeSet:
+    id: 1794446998869-49
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: raca
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-50
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: racao_kg_dia
+            type: numeric
+        tableName: animais
+- changeSet:
+    id: 1794446998869-51
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: sexo
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-52
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sisbov
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-53
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: TEXT
+        tableName: animais
+- changeSet:
+    id: 1794446998869-54
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: valor_compra
+            type: numeric
+        tableName: animais
+- changeSet:
+    id: 1794446998869-55
+    author: minhafazenda (liquibase:diff)
+    comment: SC-013 tabela animais
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: valor_venda
+            type: numeric
+        tableName: animais
+- changeSet:
+    id: 1794446998869-56
+    author: minhafazenda (liquibase:diff)
+    comment: SC-029 tabela abastecimentos
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_abastecimentos_fazenda_id
+        tableName: abastecimentos
+- changeSet:
+    id: 1794446998869-57
+    author: minhafazenda (liquibase:diff)
+    comment: SC-024 tabela anotacoes_animal
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_anotacoes_animal_fazenda_id
+        tableName: anotacoes_animal
+- changeSet:
+    id: 1794446998869-58
+    author: minhafazenda (liquibase:diff)
+    comment: SC-032 tabela anotacoes_maquina
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_anotacoes_maquina_fazenda_id
+        tableName: anotacoes_maquina
+- changeSet:
+    id: 1794446998869-59
+    author: minhafazenda (liquibase:diff)
+    comment: SC-018 tabela avaliacoes_corporais
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_avaliacoes_corporais_fazenda_id
+        tableName: avaliacoes_corporais
+- changeSet:
+    id: 1794446998869-60
+    author: minhafazenda (liquibase:diff)
+    comment: SC-036 tabela calculos_cerca
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_calculos_cerca_fazenda_id
+        tableName: calculos_cerca
+- changeSet:
+    id: 1794446998869-61
+    author: minhafazenda (liquibase:diff)
+    comment: SC-038 tabela ciclos_plantio
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_ciclos_plantio_fazenda_id
+        tableName: ciclos_plantio
+- changeSet:
+    id: 1794446998869-62
+    author: minhafazenda (liquibase:diff)
+    comment: SC-022 tabela cios
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_cios_fazenda_id
+        tableName: cios
+- changeSet:
+    id: 1794446998869-63
+    author: minhafazenda (liquibase:diff)
+    comment: SC-019 tabela controles_leiteiros
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_controles_leiteiros_fazenda_id
+        tableName: controles_leiteiros
+- changeSet:
+    id: 1794446998869-64
+    author: minhafazenda (liquibase:diff)
+    comment: SC-017 tabela doses_aplicadas
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_doses_aplicadas_fazenda_id
+        tableName: doses_aplicadas
+- changeSet:
+    id: 1794446998869-65
+    author: minhafazenda (liquibase:diff)
+    comment: SC-039 tabela etapas_ciclo
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_etapas_ciclo_fazenda_id
+        tableName: etapas_ciclo
+- changeSet:
+    id: 1794446998869-66
+    author: minhafazenda (liquibase:diff)
+    comment: SC-023 tabela exames
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_exames_fazenda_id
+        tableName: exames
+- changeSet:
+    id: 1794446998869-67
+    author: minhafazenda (liquibase:diff)
+    comment: SC-011 tabela fazenda_config
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_fazenda_config_fazenda_id
+        tableName: fazenda_config
+- changeSet:
+    id: 1794446998869-68
+    author: minhafazenda (liquibase:diff)
+    comment: SC-030 tabela leituras_horimetro
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_leituras_horimetro_fazenda_id
+        tableName: leituras_horimetro
+- changeSet:
+    id: 1794446998869-69
+    author: minhafazenda (liquibase:diff)
+    comment: SC-012 tabela lotes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_lotes_fazenda_id
+        tableName: lotes
+- changeSet:
+    id: 1794446998869-70
+    author: minhafazenda (liquibase:diff)
+    comment: SC-026 tabela maquinas
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_maquinas_fazenda_id
+        tableName: maquinas
+- changeSet:
+    id: 1794446998869-71
+    author: minhafazenda (liquibase:diff)
+    comment: SC-034 tabela marcadores_mapa
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_marcadores_mapa_fazenda_id
+        tableName: marcadores_mapa
+- changeSet:
+    id: 1794446998869-72
+    author: minhafazenda (liquibase:diff)
+    comment: SC-021 tabela mastites
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_mastites_fazenda_id
+        tableName: mastites
+- changeSet:
+    id: 1794446998869-73
+    author: minhafazenda (liquibase:diff)
+    comment: SC-037 tabela modelos_cultura
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_modelos_cultura_fazenda_id
+        tableName: modelos_cultura
+- changeSet:
+    id: 1794446998869-74
+    author: minhafazenda (liquibase:diff)
+    comment: SC-035 tabela movimentacoes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_movimentacoes_fazenda_id
+        tableName: movimentacoes
+- changeSet:
+    id: 1794446998869-75
+    author: minhafazenda (liquibase:diff)
+    comment: SC-031 tabela ocorrencias_maquina
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_ocorrencias_maquina_fazenda_id
+        tableName: ocorrencias_maquina
+- changeSet:
+    id: 1794446998869-76
+    author: minhafazenda (liquibase:diff)
+    comment: SC-025 tabela ordenhas
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_ordenhas_fazenda_id
+        tableName: ordenhas
+- changeSet:
+    id: 1794446998869-77
+    author: minhafazenda (liquibase:diff)
+    comment: SC-028 tabela paradas_uso
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_paradas_uso_fazenda_id
+        tableName: paradas_uso
+- changeSet:
+    id: 1794446998869-78
+    author: minhafazenda (liquibase:diff)
+    comment: SC-014 tabela pesagens
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_pesagens_fazenda_id
+        tableName: pesagens
+- changeSet:
+    id: 1794446998869-79
+    author: minhafazenda (liquibase:diff)
+    comment: SC-015 tabela reproducoes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_reproducoes_fazenda_id
+        tableName: reproducoes
+- changeSet:
+    id: 1794446998869-80
+    author: minhafazenda (liquibase:diff)
+    comment: SC-020 tabela secagens
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_secagens_fazenda_id
+        tableName: secagens
+- changeSet:
+    id: 1794446998869-81
+    author: minhafazenda (liquibase:diff)
+    comment: SC-033 tabela talhoes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_talhoes_fazenda_id
+        tableName: talhoes
+- changeSet:
+    id: 1794446998869-82
+    author: minhafazenda (liquibase:diff)
+    comment: SC-016 tabela tratamentos
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_tratamentos_fazenda_id
+        tableName: tratamentos
+- changeSet:
+    id: 1794446998869-83
+    author: minhafazenda (liquibase:diff)
+    comment: SC-040 tabela usos_area
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_usos_area_fazenda_id
+        tableName: usos_area
+- changeSet:
+    id: 1794446998869-84
+    author: minhafazenda (liquibase:diff)
+    comment: SC-027 tabela usos_maquina
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_usos_maquina_fazenda_id
+        tableName: usos_maquina
+- changeSet:
+    id: 1794446998869-85
+    author: minhafazenda (liquibase:diff)
+    comment: SC-026 tabela maquinas
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: maquinas
+        constraintName: FK2k35e8psamqevio054h45u6jt
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-86
+    author: minhafazenda (liquibase:diff)
+    comment: SC-016 tabela tratamentos
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: tratamentos
+        constraintName: FK36g1knge5g5kx7mv46n40ef8b
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-87
+    author: minhafazenda (liquibase:diff)
+    comment: SC-021 tabela mastites
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: mastites
+        constraintName: FK4ko93rjny0bg55cxi7ukvojs4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-88
+    author: minhafazenda (liquibase:diff)
+    comment: SC-027 tabela usos_maquina
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: usos_maquina
+        constraintName: FK4nw76ofxdqps2ip09ygavamxg
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-89
+    author: minhafazenda (liquibase:diff)
+    comment: SC-034 tabela marcadores_mapa
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: marcadores_mapa
+        constraintName: FK7bti7phmfqu2ihi43fhlgfr84
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-90
+    author: minhafazenda (liquibase:diff)
+    comment: SC-017 tabela doses_aplicadas
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: doses_aplicadas
+        constraintName: FK8y5cjakr8vka62sgu8be67wg2
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-91
+    author: minhafazenda (liquibase:diff)
+    comment: SC-028 tabela paradas_uso
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: paradas_uso
+        constraintName: FK997jn7e8s2ays69s4sgtoybx7
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-92
+    author: minhafazenda (liquibase:diff)
+    comment: SC-029 tabela abastecimentos
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: abastecimentos
+        constraintName: FK9vlx7ekw1h1x8evqekqlhh4ck
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-93
+    author: minhafazenda (liquibase:diff)
+    comment: SC-038 tabela ciclos_plantio
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: ciclos_plantio
+        constraintName: FKb9xu0xk9olfrf4vblios8n0ku
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-94
+    author: minhafazenda (liquibase:diff)
+    comment: SC-025 tabela ordenhas
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: ordenhas
+        constraintName: FKbqiw2dyva9buc4hosy2o0nnxm
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-95
+    author: minhafazenda (liquibase:diff)
+    comment: SC-024 tabela anotacoes_animal
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: anotacoes_animal
+        constraintName: FKc0xgkjoakeepioysb59r68388
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-96
+    author: minhafazenda (liquibase:diff)
+    comment: SC-036 tabela calculos_cerca
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: calculos_cerca
+        constraintName: FKddadjdj0b6ic7htalggv2q8b5
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-97
+    author: minhafazenda (liquibase:diff)
+    comment: SC-032 tabela anotacoes_maquina
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: anotacoes_maquina
+        constraintName: FKeyl1rfs2y353ehu2rliiy20gq
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-98
+    author: minhafazenda (liquibase:diff)
+    comment: SC-022 tabela cios
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: cios
+        constraintName: FKfqpko5ccq98whvqu8qadqgy9t
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-99
+    author: minhafazenda (liquibase:diff)
+    comment: SC-023 tabela exames
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: exames
+        constraintName: FKg43qlsum6qgtl4htyamevi0lo
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-100
+    author: minhafazenda (liquibase:diff)
+    comment: SC-040 tabela usos_area
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: usos_area
+        constraintName: FKhdsjv9vj78781cxenyo621yq9
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-101
+    author: minhafazenda (liquibase:diff)
+    comment: SC-030 tabela leituras_horimetro
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: leituras_horimetro
+        constraintName: FKibbnmuunh7bw7tecxutxx5yeg
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-102
+    author: minhafazenda (liquibase:diff)
+    comment: SC-012 tabela lotes
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: lotes
+        constraintName: FKldpuvqmnhils6r8uynwswgqo2
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-103
+    author: minhafazenda (liquibase:diff)
+    comment: SC-037 tabela modelos_cultura
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: modelos_cultura
+        constraintName: FKml462l8n4x1nov6fod06au3q1
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-104
+    author: minhafazenda (liquibase:diff)
+    comment: SC-033 tabela talhoes
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: talhoes
+        constraintName: FKntuovhvd7w27mm34wmvptgnyb
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-105
+    author: minhafazenda (liquibase:diff)
+    comment: SC-018 tabela avaliacoes_corporais
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: avaliacoes_corporais
+        constraintName: FKo6r0aat2ns3sctd5522fydvye
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-106
+    author: minhafazenda (liquibase:diff)
+    comment: SC-014 tabela pesagens
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: pesagens
+        constraintName: FKo9qj35rvt3cid8a4dfhv4jnjg
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-107
+    author: minhafazenda (liquibase:diff)
+    comment: SC-020 tabela secagens
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: secagens
+        constraintName: FKpoodikp8qx8ooiuw0w72k765f
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-108
+    author: minhafazenda (liquibase:diff)
+    comment: SC-039 tabela etapas_ciclo
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: etapas_ciclo
+        constraintName: FKpqctojuilfjut95fxd1nve5jx
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-109
+    author: minhafazenda (liquibase:diff)
+    comment: SC-011 tabela fazenda_config
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: fazenda_config
+        constraintName: FKq62ekeij9nue5tbk18bgxniem
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-110
+    author: minhafazenda (liquibase:diff)
+    comment: SC-031 tabela ocorrencias_maquina
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: ocorrencias_maquina
+        constraintName: FKrrvau2cdr1x0yoh6fru1tegux
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-111
+    author: minhafazenda (liquibase:diff)
+    comment: SC-015 tabela reproducoes
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: reproducoes
+        constraintName: FKs7aalyhc4b28au8cao68nybk4
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-112
+    author: minhafazenda (liquibase:diff)
+    comment: SC-035 tabela movimentacoes
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: movimentacoes
+        constraintName: FKs7nqpwk1tudag2ue8nyagr4ux
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794446998869-113
+    author: minhafazenda (liquibase:diff)
+    comment: SC-019 tabela controles_leiteiros
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: controles_leiteiros
+        constraintName: FKt9uwf11urgijw5lvmli1aaf41
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+

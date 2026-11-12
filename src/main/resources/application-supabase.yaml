@@ -1,0 +1,5 @@
+# Usado junto com "dev": troca o Postgres e o Storage locais pelos do Supabase de teste.
+# As credenciais vêm do .env na raiz do projeto, que fica fora do repositório.
+spring:
+  config:
+    import: optional:file:.env[.properties]

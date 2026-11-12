@@ -1,0 +1,552 @@
+databaseChangeLog:
+- changeSet:
+    id: 1794411294638-1
+    author: minhafazenda (liquibase:diff)
+    comment: SC-008 tabela animais
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: animaisPK
+            name: id
+            type: UUID
+        - column:
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: server_updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: nome
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: animais
+- changeSet:
+    id: 1794411294638-2
+    author: minhafazenda (liquibase:diff)
+    comment: SC-007 tabela auditoria_fazenda
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: auditoria_fazendaPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: acao
+            type: VARCHAR(255)
+        - column:
+            name: alvo_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: ator_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: auditoria_fazenda
+- changeSet:
+    id: 1794411294638-3
+    author: minhafazenda (liquibase:diff)
+    comment: SC-005 tabela convites
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: convitesPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: criado_por
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: expira_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: revogado_em
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: token_hash
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: usos
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: usos_max
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        tableName: convites
+- changeSet:
+    id: 1794411294638-4
+    author: minhafazenda (liquibase:diff)
+    comment: SC-004 tabela fazenda_membros
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: fazenda_membrosPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: papel
+            type: VARCHAR(255)
+        - column:
+            name: removed_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: fazenda_id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: usuario_id
+            type: UUID
+        tableName: fazenda_membros
+- changeSet:
+    id: 1794411294638-5
+    author: minhafazenda (liquibase:diff)
+    comment: SC-003 tabela fazendas
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: fazendasPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            name: deleted_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: fazendas
+- changeSet:
+    id: 1794411294638-6
+    author: minhafazenda (liquibase:diff)
+    comment: SC-002 tabela sessoes
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: sessoesPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: device_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: expires_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: refresh_hash
+            type: VARCHAR(255)
+        - column:
+            name: refresh_hash_anterior
+            type: VARCHAR(255)
+        - column:
+            name: revoked_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: usuario_id
+            type: UUID
+        tableName: sessoes
+- changeSet:
+    id: 1794411294638-7
+    author: minhafazenda (liquibase:diff)
+    comment: SC-006 tabela sync_rejeicoes
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: sync_rejeicoesPK
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: dados
+            type: JSONB
+        - column:
+            constraints:
+              nullable: false
+            name: motivo
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: op
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: registro_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: tabela
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: usuario_id
+            type: UUID
+        tableName: sync_rejeicoes
+- changeSet:
+    id: 1794411294638-8
+    author: minhafazenda (liquibase:diff)
+    comment: SC-001 tabela usuarios
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: usuariosPK
+            name: id
+            type: UUID
+        - column:
+            name: avatar_url
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        - column:
+            name: credencial_hash
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: nome
+            type: VARCHAR(255)
+        - column:
+            name: telefone
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: TIMESTAMP(6) WITH TIME ZONE
+        tableName: usuarios
+- changeSet:
+    id: 1794411294638-9
+    author: minhafazenda (liquibase:diff)
+    comment: SC-005 tabela convites
+    changes:
+    - addUniqueConstraint:
+        columnNames: token_hash
+        constraintName: uk_convites_token_hash
+        tableName: convites
+- changeSet:
+    id: 1794411294638-10
+    author: minhafazenda (liquibase:diff)
+    comment: SC-004 tabela fazenda_membros
+    changes:
+    - addUniqueConstraint:
+        columnNames: fazenda_id, usuario_id
+        constraintName: uk_fazenda_membros_fazenda_usuario
+        tableName: fazenda_membros
+- changeSet:
+    id: 1794411294638-11
+    author: minhafazenda (liquibase:diff)
+    comment: SC-002 tabela sessoes
+    changes:
+    - addUniqueConstraint:
+        columnNames: refresh_hash
+        constraintName: uk_sessoes_refresh_hash
+        tableName: sessoes
+- changeSet:
+    id: 1794411294638-12
+    author: minhafazenda (liquibase:diff)
+    comment: SC-001 tabela usuarios
+    changes:
+    - addUniqueConstraint:
+        columnNames: email
+        constraintName: uk_usuarios_email
+        tableName: usuarios
+- changeSet:
+    id: 1794411294638-13
+    author: minhafazenda (liquibase:diff)
+    comment: SC-008 tabela animais
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_animais_fazenda_id
+        tableName: animais
+- changeSet:
+    id: 1794411294638-14
+    author: minhafazenda (liquibase:diff)
+    comment: SC-007 tabela auditoria_fazenda
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_auditoria_fazenda_fazenda_id
+        tableName: auditoria_fazenda
+- changeSet:
+    id: 1794411294638-15
+    author: minhafazenda (liquibase:diff)
+    comment: SC-005 tabela convites
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: fazenda_id
+        indexName: idx_convites_fazenda_id
+        tableName: convites
+- changeSet:
+    id: 1794411294638-16
+    author: minhafazenda (liquibase:diff)
+    comment: SC-004 tabela fazenda_membros
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: usuario_id
+        indexName: idx_fazenda_membros_usuario_id
+        tableName: fazenda_membros
+- changeSet:
+    id: 1794411294638-17
+    author: minhafazenda (liquibase:diff)
+    comment: SC-002 tabela sessoes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: refresh_hash_anterior
+        indexName: idx_sessoes_refresh_hash_anterior
+        tableName: sessoes
+- changeSet:
+    id: 1794411294638-18
+    author: minhafazenda (liquibase:diff)
+    comment: SC-002 tabela sessoes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: usuario_id
+        indexName: idx_sessoes_usuario_id
+        tableName: sessoes
+- changeSet:
+    id: 1794411294638-19
+    author: minhafazenda (liquibase:diff)
+    comment: SC-006 tabela sync_rejeicoes
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: usuario_id
+        indexName: idx_sync_rejeicoes_usuario_id
+        tableName: sync_rejeicoes
+- changeSet:
+    id: 1794411294638-20
+    author: minhafazenda (liquibase:diff)
+    comment: SC-004 tabela fazenda_membros
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usuario_id
+        baseTableName: fazenda_membros
+        constraintName: FK3mwpefqokftv9grxxulg9kng8
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: usuarios
+        validate: true
+- changeSet:
+    id: 1794411294638-21
+    author: minhafazenda (liquibase:diff)
+    comment: SC-002 tabela sessoes
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usuario_id
+        baseTableName: sessoes
+        constraintName: FK94oumc096illook3hms99wqqa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: usuarios
+        validate: true
+- changeSet:
+    id: 1794411294638-22
+    author: minhafazenda (liquibase:diff)
+    comment: SC-006 tabela sync_rejeicoes
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usuario_id
+        baseTableName: sync_rejeicoes
+        constraintName: FK9ilko6085fcflddk1n78rv2ci
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: usuarios
+        validate: true
+- changeSet:
+    id: 1794411294638-23
+    author: minhafazenda (liquibase:diff)
+    comment: SC-005 tabela convites
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: convites
+        constraintName: FKdj9l2m73q6cbqdm1xo536pi3o
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794411294638-24
+    author: minhafazenda (liquibase:diff)
+    comment: SC-008 tabela animais
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: animais
+        constraintName: FKmc8p3m11t80kg60lyd5ju6e04
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794411294638-25
+    author: minhafazenda (liquibase:diff)
+    comment: SC-004 tabela fazenda_membros
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: fazenda_membros
+        constraintName: FKqrmbra3bgcytg6e5gog4y2p3m
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+- changeSet:
+    id: 1794411294638-26
+    author: minhafazenda (liquibase:diff)
+    comment: SC-007 tabela auditoria_fazenda
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fazenda_id
+        baseTableName: auditoria_fazenda
+        constraintName: FKsw7t6gj3vre2fxspl55mtk6g8
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: fazendas
+        validate: true
+

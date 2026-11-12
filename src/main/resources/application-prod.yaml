@@ -1,0 +1,10 @@
+server:
+  # O Render informa a porta em PORT
+  port: ${PORT:8080}
+  # Atrás de proxy, o IP do cliente (usado no rate limit) vem do X-Forwarded-For
+  forward-headers-strategy: native
+
+# No Render, RENDER_EXTERNAL_URL vem preenchida e liga o ping que impede a API de dormir
+manter-acordado:
+  url: ${RENDER_EXTERNAL_URL:}
+  intervalo: PT10M

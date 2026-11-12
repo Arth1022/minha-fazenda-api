@@ -1,0 +1,76 @@
+# Escrito à mão: o liquibase:diff não detecta troca de tipo de coluna já existente.
+# varchar(255) -> text no Postgres não reescreve a tabela.
+databaseChangeLog:
+- changeSet:
+    id: sc-041-colunas-de-texto
+    author: minhafazenda
+    comment: SC-041 colunas de texto existentes passam de varchar(255) para text
+    changes:
+    - modifyDataType:
+        tableName: animais
+        columnName: nome
+        newDataType: text
+    - modifyDataType:
+        tableName: auditoria_fazenda
+        columnName: acao
+        newDataType: text
+    - modifyDataType:
+        tableName: convites
+        columnName: token_hash
+        newDataType: text
+    - modifyDataType:
+        tableName: fazenda_membros
+        columnName: papel
+        newDataType: text
+    - modifyDataType:
+        tableName: fazendas
+        columnName: nome
+        newDataType: text
+    - modifyDataType:
+        tableName: sessoes
+        columnName: device_id
+        newDataType: text
+    - modifyDataType:
+        tableName: sessoes
+        columnName: refresh_hash
+        newDataType: text
+    - modifyDataType:
+        tableName: sessoes
+        columnName: refresh_hash_anterior
+        newDataType: text
+    - modifyDataType:
+        tableName: sync_rejeicoes
+        columnName: motivo
+        newDataType: text
+    - modifyDataType:
+        tableName: sync_rejeicoes
+        columnName: op
+        newDataType: text
+    - modifyDataType:
+        tableName: sync_rejeicoes
+        columnName: registro_id
+        newDataType: text
+    - modifyDataType:
+        tableName: sync_rejeicoes
+        columnName: tabela
+        newDataType: text
+    - modifyDataType:
+        tableName: usuarios
+        columnName: avatar_url
+        newDataType: text
+    - modifyDataType:
+        tableName: usuarios
+        columnName: credencial_hash
+        newDataType: text
+    - modifyDataType:
+        tableName: usuarios
+        columnName: email
+        newDataType: text
+    - modifyDataType:
+        tableName: usuarios
+        columnName: nome
+        newDataType: text
+    - modifyDataType:
+        tableName: usuarios
+        columnName: telefone
+        newDataType: text

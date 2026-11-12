@@ -1,0 +1,21 @@
+# Única migration escrita à mão permitida pelo projeto: a publication não existe como Entity.
+databaseChangeLog:
+  - changeSet:
+      id: sc-009-replica-identity-databasechangelog
+      author: minhafazenda
+      comment: SC-009 a tabela de controle do Liquibase não tem chave primária; sem replica identity, a publication FOR ALL TABLES bloqueia os UPDATEs dele
+      changes:
+        - sql:
+            sql: ALTER TABLE databasechangelog REPLICA IDENTITY FULL
+  - changeSet:
+      id: sc-009-publication-powersync
+      author: minhafazenda
+      comment: SC-009 publication lida pelo PowerSync; FOR ALL TABLES inclui sozinha as tabelas novas
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: "0"
+            sql: SELECT count(*) FROM pg_publication WHERE pubname = 'powersync'
+      changes:
+        - sql:
+            sql: CREATE PUBLICATION powersync FOR ALL TABLES

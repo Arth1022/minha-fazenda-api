@@ -1,0 +1,2177 @@
+[ {
+  "table_name" : "abastecimentos",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "abastecido_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "foto_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "horimetroh",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "litros",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "maquina_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "operador",
+  "data_type" : "text"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "operador_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "origem",
+  "data_type" : "text"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "tanque_cheio",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "uso_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "abastecimentos",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "brinco",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "crias_anteriores",
+  "data_type" : "integer"
+}, {
+  "table_name" : "animais",
+  "column_name" : "data_desmame",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "data_entrada",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "data_nascimento",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "data_saida",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "animais",
+  "column_name" : "foto_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "grau_sangue",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "ja_pariu",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "animais",
+  "column_name" : "lote_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "mae_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "motivo_saida",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "nascimento_aproximado",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "animais",
+  "column_name" : "origem",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "pai_descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "pai_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "animais",
+  "column_name" : "parto_assistido",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "animais",
+  "column_name" : "peso_saida_kg",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "animais",
+  "column_name" : "producao_leitel",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "animais",
+  "column_name" : "raca",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "racao_kg_dia",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "animais",
+  "column_name" : "sexo",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "sisbov",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "status",
+  "data_type" : "text"
+}, {
+  "table_name" : "animais",
+  "column_name" : "valor_compra",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "animais",
+  "column_name" : "valor_venda",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "texto",
+  "data_type" : "text"
+}, {
+  "table_name" : "anotacoes_animal",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "maquina_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "texto",
+  "data_type" : "text"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "uso_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "anotacoes_maquina",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "auditoria_fazenda",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "auditoria_fazenda",
+  "column_name" : "acao",
+  "data_type" : "text"
+}, {
+  "table_name" : "auditoria_fazenda",
+  "column_name" : "alvo_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "auditoria_fazenda",
+  "column_name" : "ator_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "auditoria_fazenda",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "auditoria_fazenda",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "escore",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "avaliacoes_corporais",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "area_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "cantos",
+  "data_type" : "integer"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "custo",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "desatualizado",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "espacamentom",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "esticadores",
+  "data_type" : "integer"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "fios",
+  "data_type" : "integer"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "metros_arame",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "mouroes",
+  "data_type" : "integer"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "perimetrom",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "preco_esticador",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "preco_mourao",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "preco_rolo",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "rolos",
+  "data_type" : "integer"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "tipo_cerca",
+  "data_type" : "text"
+}, {
+  "table_name" : "calculos_cerca",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "area_ha",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "area_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "calculo_desatualizado",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "cultura",
+  "data_type" : "text"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "data_plantio",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "encerrado_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "modelo_id",
+  "data_type" : "text"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "saco_kg",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "sacos",
+  "data_type" : "integer"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "sementes_kg",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "status",
+  "data_type" : "text"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "taxa_kg_ha",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ciclos_plantio",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "cios",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "cios",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "cios",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "cios",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "cios",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "cios",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "cios",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "cios",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "cios",
+  "column_name" : "observacoes",
+  "data_type" : "text"
+}, {
+  "table_name" : "cios",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "litros",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "controles_leiteiros",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "convites",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "convites",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "convites",
+  "column_name" : "criado_por",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "convites",
+  "column_name" : "expira_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "convites",
+  "column_name" : "revogado_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "convites",
+  "column_name" : "token_hash",
+  "data_type" : "text"
+}, {
+  "table_name" : "convites",
+  "column_name" : "usos",
+  "data_type" : "integer"
+}, {
+  "table_name" : "convites",
+  "column_name" : "usos_max",
+  "data_type" : "integer"
+}, {
+  "table_name" : "convites",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "id",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "author",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "filename",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "dateexecuted",
+  "data_type" : "timestamp without time zone"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "orderexecuted",
+  "data_type" : "integer"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "exectype",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "md5sum",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "description",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "comments",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "tag",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "liquibase",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "contexts",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "labels",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangelog",
+  "column_name" : "deployment_id",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "databasechangeloglock",
+  "column_name" : "id",
+  "data_type" : "integer"
+}, {
+  "table_name" : "databasechangeloglock",
+  "column_name" : "locked",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "databasechangeloglock",
+  "column_name" : "lockgranted",
+  "data_type" : "timestamp without time zone"
+}, {
+  "table_name" : "databasechangeloglock",
+  "column_name" : "lockedby",
+  "data_type" : "character varying"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "dia",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "tratamento_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "doses_aplicadas",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "atribuida_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "atribuida_por",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "ciclo_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "observacao",
+  "data_type" : "text"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "ordem",
+  "data_type" : "integer"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "prevista_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "realizada_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "responsavel_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "responsavel_nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "etapas_ciclo",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "exames",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "exames",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "exames",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "exames",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "exames",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "exames",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "exames",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "exames",
+  "column_name" : "comprovante_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "exames",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "exames",
+  "column_name" : "descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "exames",
+  "column_name" : "resultado",
+  "data_type" : "text"
+}, {
+  "table_name" : "exames",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "exames",
+  "column_name" : "validade_dias",
+  "data_type" : "integer"
+}, {
+  "table_name" : "exames",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "area_hectares",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "divisa_json",
+  "data_type" : "text"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "max_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "max_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "min_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "min_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "tipo_producao",
+  "data_type" : "text"
+}, {
+  "table_name" : "fazenda_config",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazenda_membros",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazenda_membros",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazenda_membros",
+  "column_name" : "papel",
+  "data_type" : "text"
+}, {
+  "table_name" : "fazenda_membros",
+  "column_name" : "removed_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazenda_membros",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazenda_membros",
+  "column_name" : "usuario_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazendas",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazendas",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazendas",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "fazendas",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "fazendas",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "fazendas",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "estimadoh",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "foto_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "lido_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "maquina_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "operador",
+  "data_type" : "text"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "operador_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "origem",
+  "data_type" : "text"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "uso_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "valorh",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "leituras_horimetro",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "area_desde",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "area_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "lotes",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "ano_fabricacao",
+  "data_type" : "integer"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "categoria",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "codigo",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "combustivel",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "data_aquisicao",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "horimetro_inicial",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "largura_trabalhom",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "marca",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "modelo",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "numero_serie",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "placa",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "possui_horimetro",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "potencia_cv",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "status",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "tanque_litros",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "velocidade_max_kmh",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "maquinas",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "resolvido",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "talhao_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "titulo",
+  "data_type" : "text"
+}, {
+  "table_name" : "marcadores_mapa",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "observacoes",
+  "data_type" : "text"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "tetos",
+  "data_type" : "text"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "mastites",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "etapas",
+  "data_type" : "text"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "saco_kg",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "taxa_kg_ha",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "modelos_cultura",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "area_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "entrada_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "lote_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "registrado_por",
+  "data_type" : "text"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "registrado_por_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "saida_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "movimentacoes",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "categoria",
+  "data_type" : "text"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "foto_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "maquina_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "operador",
+  "data_type" : "text"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "operador_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "pode_usar",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "registrado_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "resolvida_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "uso_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ocorrencias_maquina",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "data_registro",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "horario_notificacao",
+  "data_type" : "text"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "horario_previsto",
+  "data_type" : "text"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "periodo",
+  "data_type" : "text"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "volume_litros",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "ordenhas",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "fim",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "inicio",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "motivo",
+  "data_type" : "text"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "uso_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "paradas_uso",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "metodo",
+  "data_type" : "text"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "peso_kg",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "pesagens",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "cria_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "data_aborto",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "data_diagnostico",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "data_parto",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "metodo_diagnostico",
+  "data_type" : "text"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "prenhez_confirmada",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "previsao_parto",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "touro_descricao",
+  "data_type" : "text"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "touro_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "reproducoes",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "data",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "secagens",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "device_id",
+  "data_type" : "text"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "expires_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "refresh_hash",
+  "data_type" : "text"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "refresh_hash_anterior",
+  "data_type" : "text"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "revoked_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "sessoes",
+  "column_name" : "usuario_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "dados",
+  "data_type" : "jsonb"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "motivo",
+  "data_type" : "text"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "op",
+  "data_type" : "text"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "registro_id",
+  "data_type" : "text"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "tabela",
+  "data_type" : "text"
+}, {
+  "table_name" : "sync_rejeicoes",
+  "column_name" : "usuario_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "area_hectares",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "centro_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "centro_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "cor",
+  "data_type" : "text"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "cultura",
+  "data_type" : "text"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "data_plantio",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "fase_lavoura",
+  "data_type" : "text"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "geometria_json",
+  "data_type" : "text"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "max_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "max_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "min_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "min_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "perimetrom",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "tipo",
+  "data_type" : "text"
+}, {
+  "table_name" : "talhoes",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "animal_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "aviso_minutos_antes",
+  "data_type" : "integer"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "carencia_carne_dias",
+  "data_type" : "integer"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "carencia_leite_dias",
+  "data_type" : "integer"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "comprovante_uri",
+  "data_type" : "text"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "data_fim",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "data_inicio",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "dias_semana",
+  "data_type" : "text"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "dose",
+  "data_type" : "text"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "grupo_aplicacao_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "horario",
+  "data_type" : "text"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "intervalo_horas",
+  "data_type" : "integer"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "medicamento",
+  "data_type" : "text"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "notificacao_ativa",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "observacoes",
+  "data_type" : "text"
+}, {
+  "table_name" : "tratamentos",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "area_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "inicio",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "km",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "segundos",
+  "data_type" : "integer"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "uso_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_area",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "created_by",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "deleted_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "server_updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "area_estimada_ha",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "atividade",
+  "data_type" : "text"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "continua_ate",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "fim",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "fim_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "fim_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "fim_motivo",
+  "data_type" : "text"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "implemento_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "inicio",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "inicio_lat",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "inicio_lng",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "km_total",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "km_trabalhando",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "localizacao_simulada",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "maquina_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "operador",
+  "data_type" : "text"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "operador_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "origem",
+  "data_type" : "text"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "parada_avisada_em",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "qualidade",
+  "data_type" : "numeric"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "rastreado",
+  "data_type" : "boolean"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "rastro",
+  "data_type" : "text"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "regras_desde",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "seg_deslocando",
+  "data_type" : "integer"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "seg_parada",
+  "data_type" : "integer"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "seg_pausa",
+  "data_type" : "integer"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "seg_sem_sinal",
+  "data_type" : "integer"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "seg_trabalhando",
+  "data_type" : "integer"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "talhoes",
+  "data_type" : "text"
+}, {
+  "table_name" : "usos_maquina",
+  "column_name" : "fazenda_id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "id",
+  "data_type" : "uuid"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "avatar_url",
+  "data_type" : "text"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "created_at",
+  "data_type" : "timestamp with time zone"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "credencial_hash",
+  "data_type" : "text"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "email",
+  "data_type" : "text"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "nome",
+  "data_type" : "text"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "telefone",
+  "data_type" : "text"
+}, {
+  "table_name" : "usuarios",
+  "column_name" : "updated_at",
+  "data_type" : "timestamp with time zone"
+} ]

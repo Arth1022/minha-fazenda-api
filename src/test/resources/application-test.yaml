@@ -1,0 +1,11 @@
+# Sobrepõe o perfil dev nos testes de integração.
+rate-limit:
+  # Toda a suíte parte do mesmo IP; o limite real é exercitado no RateLimitIntegrationTest
+  requisicoes-por-minuto: 1000000
+
+sync:
+  min-schema-version: 5
+
+logging:
+  level:
+    root: WARN

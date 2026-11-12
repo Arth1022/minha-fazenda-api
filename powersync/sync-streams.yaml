@@ -1,0 +1,241 @@
+# Sync Streams do PowerSync. Cada usuário recebe só os dados das fazendas em que é membro ativo:
+# todo stream filtra por fazenda_membros com removed_at IS NULL. auth.user_id() é o sub do JWT
+# emitido em GET /auth/powersync-token.
+# Tabela de domínio nova = um bloco novo no fim, igual aos de baixo.
+config:
+  edition: 3
+
+streams:
+  fazendas:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM fazendas WHERE id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  membros:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM fazenda_membros WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  # Só id, nome e avatar dos colegas de fazenda; e-mail e telefone nunca saem do servidor.
+  colegas:
+    auto_subscribe: true
+    query: |
+      SELECT id, nome, avatar_url FROM usuarios WHERE id IN (
+        SELECT usuario_id FROM fazenda_membros WHERE fazenda_id IN (
+          SELECT fazenda_id FROM fazenda_membros
+          WHERE usuario_id = auth.user_id() AND removed_at IS NULL))
+
+  # Tabelas de domínio (schema v1 do app)
+  fazenda_config:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM fazenda_config WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  lotes:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM lotes WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  animais:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM animais WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  pesagens:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM pesagens WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  reproducoes:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM reproducoes WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  tratamentos:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM tratamentos WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  doses_aplicadas:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM doses_aplicadas WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  avaliacoes_corporais:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM avaliacoes_corporais WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  controles_leiteiros:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM controles_leiteiros WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  secagens:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM secagens WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  mastites:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM mastites WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  cios:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM cios WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  exames:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM exames WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  anotacoes_animal:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM anotacoes_animal WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  ordenhas:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM ordenhas WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  maquinas:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM maquinas WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  usos_maquina:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM usos_maquina WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  paradas_uso:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM paradas_uso WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  abastecimentos:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM abastecimentos WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  leituras_horimetro:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM leituras_horimetro WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  ocorrencias_maquina:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM ocorrencias_maquina WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  anotacoes_maquina:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM anotacoes_maquina WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  talhoes:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM talhoes WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  marcadores_mapa:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM marcadores_mapa WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  movimentacoes:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM movimentacoes WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  calculos_cerca:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM calculos_cerca WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  modelos_cultura:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM modelos_cultura WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  ciclos_plantio:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM ciclos_plantio WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  etapas_ciclo:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM etapas_ciclo WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)
+
+  usos_area:
+    auto_subscribe: true
+    query: |
+      SELECT * FROM usos_area WHERE fazenda_id IN (
+        SELECT fazenda_id FROM fazenda_membros
+        WHERE usuario_id = auth.user_id() AND removed_at IS NULL)

@@ -1,0 +1,26 @@
+# Roda por último e em toda subida (runAlways), para cobrir também as tabelas criadas depois.
+# No Supabase, tabela do schema public sem RLS fica aberta pela Data API a quem tiver a chave
+# pública do projeto. Com RLS ligado e nenhuma policy, só o dono das tabelas (o usuário da API)
+# e papéis com BYPASSRLS (o do PowerSync) leem e gravam.
+databaseChangeLog:
+  - changeSet:
+      id: sc-010-rls-todas-as-tabelas
+      author: minhafazenda
+      runAlways: true
+      comment: SC-010 liga row level security em toda tabela do schema
+      changes:
+        - sql:
+            splitStatements: false
+            sql: |
+              DO $$
+              DECLARE
+                tabela regclass;
+              BEGIN
+                FOR tabela IN
+                  SELECT c.oid FROM pg_class c
+                  JOIN pg_namespace n ON n.oid = c.relnamespace
+                  WHERE n.nspname = current_schema() AND c.relkind = 'r' AND NOT c.relrowsecurity
+                LOOP
+                  EXECUTE format('ALTER TABLE %s ENABLE ROW LEVEL SECURITY', tabela);
+                END LOOP;
+              END $$;
