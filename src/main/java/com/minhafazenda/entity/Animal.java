@@ -72,9 +72,6 @@ public class Animal extends BaseFazendaEntity {
     private BigDecimal producaoLeiteL;
 
     @Column(columnDefinition = "numeric")
-    private BigDecimal racaoKgDia;
-
-    @Column(columnDefinition = "numeric")
     private BigDecimal valorCompra;
 
     @Column(columnDefinition = "numeric")

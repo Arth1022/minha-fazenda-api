@@ -1,0 +1,17 @@
+# SC-050 A ração concentrada por dia saiu do app (SCHEMA_VERSION 2). O campo saiu da entity Animal
+# no mesmo commit: apagar a coluna antes disso quebraria as consultas de animais. A precondição
+# deixa o changeset passar se a coluna já tiver sido apagada à mão.
+databaseChangeLog:
+- changeSet:
+    id: 20261116120000-01
+    author: minhafazenda
+    comment: SC-050 animais sem racao_kg_dia
+    preConditions:
+    - onFail: MARK_RAN
+    - columnExists:
+        tableName: animais
+        columnName: racao_kg_dia
+    changes:
+    - dropColumn:
+        tableName: animais
+        columnName: racao_kg_dia
