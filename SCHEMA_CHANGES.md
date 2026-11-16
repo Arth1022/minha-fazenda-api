@@ -56,6 +56,7 @@ O ID de cada mudança aparece no `comment` dos changesets em
 | SC-047 | 2026-11-12 | storage.buckets | + bucket privado `midias` (fotos, áudios, documentos) | — | — | app | entity+changeset |
 | SC-048 | 2026-11-12 | (todas) | SELECT do papel de replicação do PowerSync em toda tabela, também nas futuras | — | — | back | entity+changeset |
 | SC-049 | 2026-11-12 | convites | + `codigo` (código de convite de 6 caracteres, único) | text | sim | app | entity+changeset |
+| SC-050 | 2026-11-16 | animais | − `racao_kg_dia` (ração concentrada saiu do app, SCHEMA_VERSION 2) | — | — | app | entity+changeset |
 
 Todas as mudanças acima já estão aplicadas no projeto Supabase; passam a "API em produção" quando
 a API subir lá.
@@ -374,3 +375,8 @@ Regras desta leva:
 ## SC-049 — convites.codigo
 - Motivo: convite simplificado para um código que o colaborador digita (24 h, uma pessoa). O hash vai em `token_hash` como no link; o texto fica em `codigo` para o dono ver de novo.
 - Changeset: db/changelog/changes/20261112140000-codigo-de-convite.yaml
+
+## SC-050 — animais sem racao_kg_dia
+- Motivo: a ração concentrada por dia saiu do app (cadastro e ficha do animal) a pedido do produtor; desde o SCHEMA_VERSION 2 o app não lê nem grava a coluna. Upload de app antigo que ainda mande `racao_kg_dia` continua aceito: coluna que a tabela não tem é ignorada.
+- Ordem: o campo sai da entity `Animal` no mesmo deploy do changeset; apagar a coluna antes quebraria as consultas de animais.
+- Changeset: db/changelog/changes/20261116120000-remove-racao-kg-dia.yaml

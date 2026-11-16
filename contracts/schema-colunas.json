@@ -188,10 +188,6 @@
   "data_type" : "text"
 }, {
   "table_name" : "animais",
-  "column_name" : "racao_kg_dia",
-  "data_type" : "numeric"
-}, {
-  "table_name" : "animais",
   "column_name" : "sexo",
   "data_type" : "text"
 }, {
